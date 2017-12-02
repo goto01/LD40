@@ -61,8 +61,3 @@ ipch/
 [Rr]elease*/
 Ankh.NoLoad
 Library/
-Launcher/InTheWallLauncher/packages/MahApps.Metro.1.2.4.0/lib/net45/MahApps.Metro.dll
-ExcelResourcesExporter/ExcelResourcesExporter/packages/Google.Apis.Auth.1.29.1/lib/net45/Google.Apis.Auth.dll
-ExcelResourcesExporter/ExcelResourcesExporter/packages/Google.Apis.Auth.1.29.1/lib/netstandard1.3/Google.Apis.Auth.dll
-ExcelResourcesExporter/
-Launcher/

@@ -22,7 +22,8 @@ namespace Core.Movement
 
         private void UpdateAnimator(float offset)
         {
-            _animator.SetBool(RunParameter, offset > Mathf.Epsilon);
+            if (_animator != null)
+                _animator.SetBool(RunParameter, offset > Mathf.Epsilon);
         }
         
         protected virtual void OnEnable()

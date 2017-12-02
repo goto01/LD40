@@ -48,8 +48,13 @@ namespace Constrollers
                 var weightyObject = weightyObjects[i];
                 var position = weightyObject.transform.position;
                 var cellObject = GetCell(position);
-                if (cellObject != null)
+                if (cellObject != null && !cellObject.WasCrashed)
+                {
                     cellObject.AddWeight(weightyObject.CurrentWeight);
+                    position = weightyObject.transform.localPosition;
+                    position.y = cellObject.transform.localPosition.y;
+                    weightyObject.transform.localPosition = position;
+                }
             }
             for (int i = 0, n = cellObjects.Count; i < n; ++i)
             {

@@ -17,9 +17,8 @@ namespace Core.Field
         [SerializeField] private float fallingAcceleration = -20.0f;
         [SerializeField] private float minYPosition = -30.0f;
 
-        private bool wasCrashed;
-
         public float WeightDelta { get { return CurrentWeight/maxWeight; } }
+        public bool WasCrashed { get; private set; }
 
         public float Radius
         {
@@ -31,15 +30,9 @@ namespace Core.Field
             get { return currentWeight; }
         }
 
-        protected virtual void Awake()
+        protected virtual void OnEnable()
         {
             FieldCellsController.Instance.Register(this);
-        }
-
-        protected virtual void OnDestroy()
-        {
-            if (!FieldCellsController.WasDestoyed)
-                FieldCellsController.Instance.Remove(this);
         }
 
         protected virtual void OnDisable()
@@ -64,15 +57,15 @@ namespace Core.Field
             position.y = (currentWeight - maxWeight) * weightToPositionRation;
             transform.localPosition = position;
             if (currentWeight <= 0)
-                Invoke("DestroyCell", delayBeforeDestroy);
+                Invoke("CrashCell", delayBeforeDestroy);
             else
-                CancelInvoke("DestroyCell");
+                CancelInvoke("CrashCell");
         }
 
-        private void DestroyCell()
+        private void CrashCell()
         {
-            if (wasCrashed) return;
-            wasCrashed = true;
+            if (WasCrashed) return;
+            WasCrashed = true;
             StartCoroutine(Falling());
         }
 

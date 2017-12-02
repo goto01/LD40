@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.Constrollers;
+﻿using Constrollers;
 using UnityEngine;
 
-namespace Assets.Scripts.Core.Field
+namespace Core.Field
 {
     public class BaseWeightyObject : MonoBehaviour
     {

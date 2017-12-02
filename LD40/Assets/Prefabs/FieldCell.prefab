@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4468299206895332}
   - component: {fileID: 114095448728917546}
+  - component: {fileID: 114524680339103138}
   m_Layer: 0
   m_Name: FieldCell
   m_TagString: Untagged
@@ -37,6 +38,7 @@ GameObject:
   - component: {fileID: 4041964227995296}
   - component: {fileID: 33423915292985068}
   - component: {fileID: 23874869119813894}
+  - component: {fileID: 64530412560356924}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -50,13 +52,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1741164938588098}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 4468299206895332}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4468299206895332
 Transform:
   m_ObjectHideFlags: 1
@@ -85,7 +87,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f817c7229c2bc9b4397429fd910bbadf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,7 +113,21 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1741164938588098}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: c65a3fac2ecfdc648a580c63e3e0d4c2, type: 3}
+--- !u!64 &64530412560356924
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1741164938588098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 7f2d8d4839f5d4f40845769f667bd6dd, type: 3}
 --- !u!114 &114095448728917546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,5 +139,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c15746490554e998cf5ad0b3b555a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  currentHealth: 0
+  radius: 0.5
+  maxWeight: 5
+  currentWeight: 0
+  delayBeforeDestroy: 1
+--- !u!114 &114524680339103138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725425763381308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873adac8a5d15e1428984bfe942b44ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 23874869119813894}
+  _noneCrackTexture: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
+  _crackTexture0: {fileID: 2800000, guid: c521650374dea5346b6bea17ab587836, type: 3}
+  _crackTexture1: {fileID: 2800000, guid: 39ec427f8339c6f478ddb8dd69b70571, type: 3}
+  _crackTexture2: {fileID: 2800000, guid: 58fe9db8e17bc1e4088e1cf0ddb0578b, type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Constrollers;
 using Core.Enemies;
+using Core.Movement;
 using UnityEngine;
 
 namespace Core.Field
@@ -35,9 +36,9 @@ namespace Core.Field
             fallingTime = null;
             WasFall = false;
             CurrentWeight = startWeight;
-            var enemy = GetComponent<Enemy>();
-            if (enemy != null)
-                enemy.enabled = true;
+            var movementObject = GetComponent<BaseMovementObject>();
+            if (movementObject != null)
+                movementObject.enabled = true;
         }
 
         protected virtual void OnEnable()
@@ -96,9 +97,9 @@ namespace Core.Field
         private void OnWasFall()
         {
             FieldCellsController.Instance.Remove(this);
-            var enemy = GetComponent<Enemy>();
-            if (enemy != null)
-                enemy.enabled = false;
+            var movementObject = GetComponent<BaseMovementObject>();
+            if (movementObject != null)
+                movementObject.enabled = true;
         }
     }
 }

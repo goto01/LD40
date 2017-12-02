@@ -54,7 +54,7 @@ namespace Assets.Scripts.Constrollers
             }
             for (int i = 0, n = cellObjects.Count; i < n; ++i)
             {
-                Debug.LogFormat("cellObjects[{0}]={1}", i, cellObjects[i].CurrentWeight);
+//                Debug.LogFormat("cellObjects[{0}]={1}", i, cellObjects[i].CurrentWeight);
                 cellObjects[i].TestWeight();
             }
         }

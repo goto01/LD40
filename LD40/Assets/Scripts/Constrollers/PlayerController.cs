@@ -11,6 +11,11 @@ namespace Constrollers
 
         public LayerMask PlayerBulletsLayerMask { get { return _playerBulletsLayerMask; } }
 
+        public Player Player
+        {
+            get { return _player; }
+        }
+
         public override void AwakeSingleton()
         {
             

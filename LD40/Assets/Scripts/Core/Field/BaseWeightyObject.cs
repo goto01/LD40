@@ -34,7 +34,8 @@ namespace Core.Field
 
         private void OnWeightWasChanged()
         {
-            var scale = currentWeight * weightToScaleRate / startWeight;
+            var scale = currentWeight / (float)startWeight;
+            scale = 1.0f + (scale - 1.0f) * weightToScaleRate;  
             transform.localScale = Vector3.one * scale;
         }
     }

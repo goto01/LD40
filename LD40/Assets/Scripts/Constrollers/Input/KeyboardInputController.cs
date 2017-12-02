@@ -28,8 +28,11 @@ namespace Constrollers.Input
         
         public override Vector3 GetPointerDirectionFrom(Vector3 point)
         {
-            var dir = UnityEngine.Input.mousePosition - _camera.WorldToScreenPoint(point);
-            return new Vector3(dir.x, 0, dir.y).normalized;
+            var plane = new Plane(Vector3.up, Vector3.zero);
+            var ray = _camera.ScreenPointToRay(UnityEngine.Input.mousePosition);
+            float enter;
+            plane.Raycast(ray, out enter);
+            return (ray.GetPoint(enter) - point).normalized;
         }
 
         public override void AwakeSingleton()

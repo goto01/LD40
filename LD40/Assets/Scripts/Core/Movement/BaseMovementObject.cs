@@ -30,7 +30,8 @@ namespace Core.Movement
 
         protected virtual void OnDisable()
         {
-            MovementController.Instance.Remove(this);
+            if (!MovementController.WasDestoyed)
+                MovementController.Instance.Remove(this);
         }
     }
 }

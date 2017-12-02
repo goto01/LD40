@@ -22,6 +22,12 @@ namespace Assets.Scripts.Core.Field
                 FieldCellsController.Instance.Remove(this);
         }
 
+        protected virtual void OnDisable()
+        {
+            if (!FieldCellsController.WasDestoyed)
+                FieldCellsController.Instance.Remove(this);
+        }
+
         public virtual void TestWeight()
         {
             if (currentHealth <= 0)

@@ -5,15 +5,21 @@ namespace Assets.Scripts.Core.Field
 {
     public class BaseFieldCellObject : MonoBehaviour
     {
-        [Tooltip("Сколько осталось до обрушения")]
-        [SerializeField] private int maxHealth = 5;
-        [SerializeField] private int currentHealth;
+        [SerializeField] private float radius = 0.5f;
+        [Tooltip("What weight can be sustained?")]
+        [SerializeField] private float maxWeight = 5;
+        [SerializeField] private float currentWeight;
+        [Tooltip("Settings")]
+        [SerializeField] private float delayBeforeDestroy = 1.0f;
+
+        public float Radius
+        {
+            get { return radius; }
+        }
 
         protected virtual void Awake()
         {
             FieldCellsController.Instance.Register(this);
-            
-            currentHealth = maxHealth;
         }
 
         protected virtual void OnDestroy()
@@ -28,12 +34,22 @@ namespace Assets.Scripts.Core.Field
                 FieldCellsController.Instance.Remove(this);
         }
 
+        public void ResetWeight()
+        {
+            currentWeight = maxWeight;
+        }
+
+        public void AddWeight(float weight)
+        {
+            currentWeight -= weight;
+        }
+
         public virtual void TestWeight()
         {
-            if (currentHealth <= 0)
-            {
-                DestroyCell();
-            }
+            if (currentWeight <= 0)
+                Invoke("DestroyCell", delayBeforeDestroy);
+            else
+                CancelInvoke("DestroyCell");
         }
 
         private void DestroyCell()

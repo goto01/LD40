@@ -7,7 +7,8 @@ namespace Assets.Scripts.Constrollers
 {
     class FieldCellsController : BaseController<FieldCellsController>
     {
-        [SerializeField] private List<BaseFieldCellObject> objects;
+        [SerializeField] private List<BaseFieldCellObject> cellObjects;
+        [SerializeField] private List<BaseWeightyObject> weightyObjects;
         [SerializeField] private float testWeightInterval = 1.0f;
 
         private float testWeightTimeRemain;
@@ -16,32 +17,61 @@ namespace Assets.Scripts.Constrollers
         {
         }
 
+        public void Register(BaseWeightyObject weightyObject)
+        {
+            weightyObjects.Add(weightyObject);
+        }
+
+        public void Remove(BaseWeightyObject weightyObject)
+        {
+            weightyObjects.Remove(weightyObject);
+        }
+
         public void Register(BaseFieldCellObject cellObject)
         {
-            objects.Add(cellObject);
+            cellObjects.Add(cellObject);
         }
 
         public void Remove(BaseFieldCellObject cellObject)
         {
-            objects.Remove(cellObject);
+            cellObjects.Remove(cellObject);
         }
 
         protected virtual void Update()
         {
-            testWeightTimeRemain -= Time.deltaTime;
-            if (testWeightTimeRemain < 0)
+            // todo: optimize this
+            var deltaTime = Time.deltaTime;
+            for (int i = 0, n = cellObjects.Count; i < n; ++i)
             {
-                TestWeight();
-                testWeightTimeRemain = testWeightInterval;
+                cellObjects[i].ResetWeight();
+            }
+            for (int i = 0, n = weightyObjects.Count; i < n; ++i)
+            {
+                var weightyObject = weightyObjects[i];
+                var position = weightyObject.transform.position;
+                var cellObject = GetCell(position);
+                if (cellObject != null)
+                    cellObject.AddWeight(weightyObject.CurrentWeight * deltaTime);
+            }
+            for (int i = 0, n = cellObjects.Count; i < n; ++i)
+            {
+                cellObjects[i].TestWeight();
             }
         }
 
-        private void TestWeight()
+        private BaseFieldCellObject GetCell(Vector3 position)
         {
-            for (int i = 0, n = objects.Count; i < n; ++i)
+            for (int i = 0, n = cellObjects.Count; i < n; ++i)
             {
-                objects[i].TestWeight();
+                var cellObject = cellObjects[i];
+                var p = cellObject.transform.position;
+                if (p.x - cellObject.Radius <= position.x && position.x < p.x + cellObject.Radius &&
+                    p.z - cellObject.Radius <= position.z && position.z < p.z + cellObject.Radius)
+                {
+                    return cellObject;
+                }
             }
+            return null;
         }
     }
 }

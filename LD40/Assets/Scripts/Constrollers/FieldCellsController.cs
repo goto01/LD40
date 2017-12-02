@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Core.Field;
-using Constrollers;
+using Core.Field;
 using UnityEngine;
 
-namespace Assets.Scripts.Constrollers
+namespace Constrollers
 {
     class FieldCellsController : BaseController<FieldCellsController>
     {

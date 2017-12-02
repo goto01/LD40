@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Core.Field;
+﻿using Core.Field;
 using UnityEngine;
 
 public class FieldGenerator : MonoBehaviour

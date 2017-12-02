@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Constrollers;
+﻿using Constrollers;
 using UnityEngine;
 
-namespace Assets.Scripts.Core.Field
+namespace Core.Field
 {
     public class BaseFieldCellObject : MonoBehaviour
     {
@@ -11,6 +11,8 @@ namespace Assets.Scripts.Core.Field
         [SerializeField] private float currentWeight;
         [Tooltip("Settings")]
         [SerializeField] private float delayBeforeDestroy = 1.0f;
+
+        public float WeightDelta { get { return CurrentWeight/maxWeight; } }
 
         public float Radius
         {

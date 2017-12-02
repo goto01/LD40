@@ -1,5 +1,5 @@
-﻿using Assets.Scripts.Core.Field;
-using Constrollers;
+﻿using Constrollers;
+using Core.Field;
 using Core.Movement;
 using Core.Weapons;
 using UnityEngine;

@@ -13,6 +13,11 @@ namespace Core.Field
             set { currentWeight = value; }
         }
 
+        public void AddWeight(int weight)
+        {
+            currentWeight += weight;
+        }
+
         protected virtual void OnEnable()
         {
             FieldCellsController.Instance.Register(this);

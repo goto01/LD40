@@ -66,7 +66,7 @@ namespace Core.Field
         private void DestroyCell()
         {
             // todo
-            Debug.Log("DestroyCell");
+            //Debug.Log("DestroyCell");
         }
     }
 }

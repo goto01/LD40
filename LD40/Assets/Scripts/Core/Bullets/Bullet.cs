@@ -15,6 +15,7 @@ namespace Core.Bullets
         [SerializeField] private Vector3 _startPosition;
         [SerializeField] private float _maxDistance;
         [SerializeField] private int _weightValue;
+        [SerializeField] private float _radius;
 
         protected override Vector3 Direction
         {
@@ -46,7 +47,7 @@ namespace Core.Bullets
         private void UpdateForAlive()
         {
             RaycastHit ray;
-            if (Physics.Raycast(transform.position, Direction, out ray, Offset.magnitude, _layerMask))
+            if (Physics.SphereCast(transform.position, _radius, Direction, out ray, Offset.magnitude, _layerMask))
             {
                 _poolableObject.Deactivate();
                 WeightController.Instance.GiveWeightToObject(_weightValue, ray.collider.GetComponent<BaseWeightyObject>());

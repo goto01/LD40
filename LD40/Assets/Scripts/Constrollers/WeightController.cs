@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Core.Enemies;
 using Core.Field;
+using UnityEngine;
 
 namespace Constrollers
 {
@@ -14,9 +15,9 @@ namespace Constrollers
             
         }
 
-        public void GiveWeightToObject(int weight, BaseWeightyObject enemy)
+        public void GiveWeightToObject(int weight, BaseWeightyObject @object)
         {
-            enemy.CurrentWeight += weight;
+            @object.AddWeight(weight);
         }
 
         public void TakeWeightFromPlayer(int weight)

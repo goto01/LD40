@@ -7,6 +7,16 @@ public class FieldGenerator : MonoBehaviour
     [SerializeField] private int width = 1;
     [SerializeField] private int height = 1;
 
+    public Vector2 FieldCenter
+    {
+        get { return transform.position; }
+    }
+
+    public Vector2 FieldSize
+    {
+        get { return new Vector2(width, height); }
+    }
+
     private void Start()
     {
         for (int i = 0; i < width; ++i)

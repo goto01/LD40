@@ -1,8 +1,10 @@
-﻿using Assets.Scripts.Core.Field;
+﻿using System;
+using Assets.Scripts.Core.Field;
 using Constrollers;
 using Core.Movement;
 using Core.Weapons;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Core.Enemies
 {
@@ -18,15 +20,11 @@ namespace Core.Enemies
         [SerializeField] private float weightToSpeedRatio = 1.0f;
         [SerializeField] private LayerMask bulletsLayerMask;
         
+        public event Action<Enemy> Destroyed = delegate { };
+        
         private BaseWeightyObject weightyObject;
         private WeaponComponent weaponComponent;
         private float nextShootTime;
-
-        private void Awake()
-        {
-            weightyObject = GetComponent<BaseWeightyObject>();
-            weaponComponent = GetComponent<WeaponComponent>();
-        }
 
         protected override Vector3 Direction
         {
@@ -49,10 +47,31 @@ namespace Core.Enemies
             }
         }
 
+        private void Awake()
+        {
+            weightyObject = GetComponent<BaseWeightyObject>();
+            weaponComponent = GetComponent<WeaponComponent>();
+        }
+
         public virtual void Update()
         {
             Walk();
             Shoot();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            Destroyed.Invoke(this);
+        }
+
+        public void Init(Vector3 fieldCenter, Vector2 fieldSize)
+        {
+            var position = fieldCenter;
+            position.x += fieldSize.x * (Random.value - 0.5f);
+            position.y = 0.0f;
+            position.z += fieldSize.y * (Random.value - 0.5f);
+            transform.position = position;
         }
 
         private void Walk()

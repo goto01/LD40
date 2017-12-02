@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114869633049069640}
   - component: {fileID: 114429913308539126}
   - component: {fileID: 114964170935486324}
+  - component: {fileID: 114681483756640686}
   m_Layer: 0
   m_Name: SimpleEnemy
   m_TagString: Untagged
@@ -128,6 +129,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapon: {fileID: 11400000, guid: 6b6fde44776b87944bee729ca15ecdb7, type: 2}
   _lastShotTime: 0
+--- !u!114 &114681483756640686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213307830432158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a93fc61d6e78444face16705e19d74f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114869633049069640
 MonoBehaviour:
   m_ObjectHideFlags: 1

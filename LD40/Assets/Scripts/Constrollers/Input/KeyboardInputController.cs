@@ -16,9 +16,15 @@ namespace Constrollers.Input
         private int UpInputValue { get { return Mathf.CeilToInt(UnityEngine.Input.GetAxis(_upInputName)); } }
         private int DownInputValue { get { return Mathf.CeilToInt(UnityEngine.Input.GetAxis(_downInputName)); } }
 
-        public override Vector2 GetMovementDirectin()
+        public override Vector2 GetMovementDirection()
         {
-            return new Vector2(RightInputValue - LeftInputValue, UpInputValue - DownInputValue);
+            var inputVector = new Vector3(RightInputValue - LeftInputValue, 0.0f, UpInputValue - DownInputValue);
+            var cameraVector = -Camera.main.transform.position;
+            cameraVector.y = 0.0f;
+            var rotation = Quaternion.FromToRotation(Vector3.forward, cameraVector.normalized);
+            print(cameraVector.normalized);
+            inputVector = rotation * inputVector;
+            return new Vector2(inputVector.x, inputVector.z);
         }
 
         public override bool GetShotButtonPressed()

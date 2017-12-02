@@ -9,7 +9,7 @@ namespace Core.Movement
         {
             get
             {
-                var dir = InputController.Instance.GetMovementDirectin();
+                var dir = InputController.Instance.GetMovementDirection();
                 return new Vector3(dir.x, 0, dir.y);
             }
         }

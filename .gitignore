@@ -62,3 +62,4 @@ ipch/
 Ankh.NoLoad
 Library/
 LD40/Assets/Plugins/Editor/JetBrains*
+*.idea*

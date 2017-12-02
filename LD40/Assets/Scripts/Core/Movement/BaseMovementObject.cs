@@ -21,6 +21,12 @@ namespace Core.Movement
             _transform = transform;
             MovementController.Instance.Register(this);
         }
+        
+        protected virtual void OnDestroy()
+        {
+            if (!MovementController.WasDestoyed)
+                MovementController.Instance.Remove(this);
+        }
 
         protected virtual void OnDisable()
         {

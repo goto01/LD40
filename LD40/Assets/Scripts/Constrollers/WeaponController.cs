@@ -29,7 +29,7 @@ namespace Constrollers
             for (var index = 0; index < weapon.BulletsPerShot; index++)
             {
                 var bullet = _bullets.Pop<Bullet>();
-                bullet.Init(position, Quaternion.Euler(0, weapon.RandomAngleRange, 0)*direction, weapon.BulletSpeed, _maxDistance, layerMask);
+                bullet.Init(position, Quaternion.Euler(0, weapon.RandomAngleRange, 0)*direction, weapon.BulletSpeed, _maxDistance, weapon.WeightValue, layerMask);
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿using Core.Movement;
+﻿using Constrollers;
+using Core.Field;
+using Core.Movement;
 using Staff.Pool;
 using UnityEngine;
 
@@ -12,6 +14,7 @@ namespace Core.Bullets
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private Vector3 _startPosition;
         [SerializeField] private float _maxDistance;
+        [SerializeField] private int _weightValue;
 
         protected override Vector3 Direction
         {
@@ -23,8 +26,9 @@ namespace Core.Bullets
             _poolableObject = GetComponent<PoolableObject>();
         }
 
-        public void Init(Vector3 position, Vector3 direction, float speed, float maxDistance, LayerMask mask)
+        public void Init(Vector3 position, Vector3 direction, float speed, float maxDistance, int weightValue, LayerMask mask)
         {
+            _weightValue = weightValue;
             _speed = speed;
             _layerMask = mask;
             transform.position = position;
@@ -41,13 +45,18 @@ namespace Core.Bullets
 
         private void UpdateForAlive()
         {
-            if (Physics.Raycast(transform.position, Direction, Offset.magnitude, _layerMask))
+            RaycastHit ray;
+            if (Physics.Raycast(transform.position, Direction, out ray, Offset.magnitude, _layerMask))
             {
                 _poolableObject.Deactivate();
+                WeightController.Instance.GiveWeightToObject(_weightValue, ray.collider.GetComponent<BaseWeightyObject>());
                 return;
             }
             if (Vector3.Distance(transform.position, _startPosition) > _maxDistance)
+            {
                 _poolableObject.Deactivate();
+                
+            }
         }
 
 #if UNITY_EDITOR

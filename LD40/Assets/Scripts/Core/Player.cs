@@ -31,6 +31,7 @@ namespace Core
 #if UNITY_EDITOR
         protected virtual void OnDrawGizmos()
         {
+            if (!Application.isPlaying) return;
             Gizmos.DrawLine(transform.position, transform.position + Direction);
         }
 #endif

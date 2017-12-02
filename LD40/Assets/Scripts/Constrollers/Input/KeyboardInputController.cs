@@ -22,7 +22,6 @@ namespace Constrollers.Input
             var cameraVector = -Camera.main.transform.position;
             cameraVector.y = 0.0f;
             var rotation = Quaternion.FromToRotation(Vector3.forward, cameraVector.normalized);
-            print(cameraVector.normalized);
             inputVector = rotation * inputVector;
             return new Vector2(inputVector.x, inputVector.z);
         }

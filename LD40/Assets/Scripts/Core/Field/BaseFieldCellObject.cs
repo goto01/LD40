@@ -13,7 +13,9 @@ namespace Core.Field
         [Tooltip("Settings")]
         [SerializeField] private float delayBeforeDestroy = 1.0f;
         [SerializeField] private float weightToPositionRation = 1.0f;
-        [SerializeField] private float fallingDuration = 5.0f;
+        [Tooltip("Falling")]
+        [SerializeField] private float fallingAcceleration = -20.0f;
+        [SerializeField] private float minYPosition = -30.0f;
 
         private bool wasCrashed;
 
@@ -74,18 +76,15 @@ namespace Core.Field
             StartCoroutine(Falling());
         }
 
-        IEnumerator Falling()
+        private IEnumerator Falling()
         {
-            var acceleration = 1.0f;
-            var speed = 0.0f;
-            for (float t = 0.0f; t < fallingDuration; t += Time.deltaTime)
+            var position = transform.localPosition;
+            var y = position.y;
+            for (var t = 0.0f; minYPosition < position.y; t += Time.deltaTime)
             {
-                var dt = Time.deltaTime;
-                var position = transform.position;
-                position.y -= speed * dt + acceleration * dt * dt * 0.5f;
-                transform.position = position;
-                speed += speed + acceleration * dt;
                 yield return null;
+                position.y = y + fallingAcceleration * t * t * 0.5f;
+                transform.localPosition = position;
             }
             gameObject.SetActive(false);
         }

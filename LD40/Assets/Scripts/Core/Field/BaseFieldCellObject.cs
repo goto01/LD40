@@ -11,6 +11,7 @@ namespace Core.Field
         [SerializeField] private float currentWeight;
         [Tooltip("Settings")]
         [SerializeField] private float delayBeforeDestroy = 1.0f;
+        [SerializeField] private float weightToPositionRation = 1.0f;
 
         public float WeightDelta { get { return CurrentWeight/maxWeight; } }
 
@@ -53,6 +54,9 @@ namespace Core.Field
 
         public virtual void TestWeight()
         {
+            var position = transform.localPosition;
+            position.y = (currentWeight - maxWeight) * weightToPositionRation;
+            transform.localPosition = position;
             if (currentWeight <= 0)
                 Invoke("DestroyCell", delayBeforeDestroy);
             else

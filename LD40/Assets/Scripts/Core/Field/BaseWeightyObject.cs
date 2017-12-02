@@ -13,15 +13,9 @@ namespace Core.Field
             set { currentWeight = value; }
         }
 
-        protected virtual void Awake()
+        protected virtual void OnEnable()
         {
             FieldCellsController.Instance.Register(this);
-        }
-
-        protected virtual void OnDestroy()
-        {
-            if (!FieldCellsController.WasDestoyed)
-                FieldCellsController.Instance.Remove(this);
         }
 
         protected virtual void OnDisable()

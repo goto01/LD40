@@ -143,6 +143,7 @@ MonoBehaviour:
   maxWeight: 5
   currentWeight: 0
   delayBeforeDestroy: 1
+  weightToPositionRation: 0.01
 --- !u!114 &114524680339103138
 MonoBehaviour:
   m_ObjectHideFlags: 1

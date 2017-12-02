@@ -20,9 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4315137012070700}
   - component: {fileID: 33795649553583768}
-  - component: {fileID: 136433608475391148}
   - component: {fileID: 23295295053757086}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +42,7 @@ GameObject:
   - component: {fileID: 114681483756640686}
   - component: {fileID: 54041774752968218}
   - component: {fileID: 136965770906029308}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SimpleEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,24 +184,11 @@ MonoBehaviour:
   shootInterval: 1
   minDistanceToPlayer: 2
   walkbackDistanceToPlayer: 1
-  speedWithoutWeight: 10
+  speedWithoutWeight: 3
   weightToSpeedRatio: 1
   bulletsLayerMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!136 &136433608475391148
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1171664706857128}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136965770906029308
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d28f260883b9884b9c8e7e5d006c78b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 5
   _transform: {fileID: 0}
   _direction: {x: 0, y: 0, z: 0}
   _poolableObject: {fileID: 0}

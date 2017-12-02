@@ -17,7 +17,7 @@ namespace Constrollers
 
         public void GiveWeightToObject(int weight, BaseWeightyObject @object)
         {
-            @object.AddWeight(weight);
+            @object.CurrentWeight += weight;
         }
 
         public void TakeWeightFromPlayer(int weight)

@@ -16,7 +16,8 @@ public class EnemySpawner : MonoBehaviour
         fieldGenerator = FindObjectOfType<FieldGenerator>();
         for (int i = 0; i < spawnStartCount; ++i)
             SpawnEnemy();
-        InvokeRepeating("SpawnEnemy", spawnInterval, spawnInterval);
+        if (0.0f < spawnInterval)
+            InvokeRepeating("SpawnEnemy", spawnInterval, spawnInterval);
     }
 
     private void OnDestroy()

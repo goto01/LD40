@@ -5,21 +5,24 @@ namespace Core.Field
 {
     public class BaseWeightyObject : MonoBehaviour
     {
-        [SerializeField] private int currentWeight = 5;
+        [SerializeField] private int startWeight = 5;
+        [SerializeField] private int currentWeight;
+        [SerializeField] private float weightToScaleRate = 1.0f;
 
         public int CurrentWeight
         {
             get { return currentWeight; }
-            set { currentWeight = value; }
-        }
-
-        public void AddWeight(int weight)
-        {
-            currentWeight += weight;
+            set
+            {
+                if (currentWeight == value) return;
+                currentWeight = value;
+                OnWeightWasChanged();
+            }
         }
 
         protected virtual void OnEnable()
         {
+            CurrentWeight = startWeight;
             FieldCellsController.Instance.Register(this);
         }
 
@@ -27,6 +30,12 @@ namespace Core.Field
         {
             if (!FieldCellsController.WasDestoyed)
                 FieldCellsController.Instance.Remove(this);
+        }
+
+        private void OnWeightWasChanged()
+        {
+            var scale = currentWeight * weightToScaleRate / startWeight;
+            transform.localScale = Vector3.one * scale;
         }
     }
 }

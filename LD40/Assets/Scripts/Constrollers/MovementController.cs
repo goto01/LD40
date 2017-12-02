@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Core.Movement;
-using Constrollers;
+using Core.Movement;
 using UnityEngine;
 
-namespace Assets.Scripts.Constrollers
+namespace Constrollers
 {
     class MovementController : BaseController<MovementController>
     {

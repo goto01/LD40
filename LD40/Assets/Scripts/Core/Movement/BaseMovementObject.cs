@@ -1,15 +1,15 @@
-﻿using Assets.Scripts.Constrollers;
+﻿using Constrollers;
 using UnityEngine;
 
-namespace Assets.Scripts.Core.Movement
+namespace Core.Movement
 {
-    class BaseMovementObject : MonoBehaviour
+    public abstract class BaseMovementObject : MonoBehaviour
     {
         [SerializeField] private float _speed;
-        [SerializeField] private Vector3 _direction;
         [SerializeField] private Transform _transform;
 
-        private Vector3 Offset { get { return _direction*_speed*Time.deltaTime; } }
+        protected abstract Vector3 Direction { get; }
+        protected Vector3 Offset { get { return Direction * _speed*Time.deltaTime; } }
 
         protected virtual void Awake()
         {

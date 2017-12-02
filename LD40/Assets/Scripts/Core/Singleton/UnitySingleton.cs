@@ -31,7 +31,7 @@ namespace Core.Singleton
 
         private static T Init()
         {
-            var instance = GameObject.FindObjectOfType(typeof (T)) as T;
+            var instance = Object.FindObjectOfType<T>();
             if (instance == null)
             {
                 Debug.LogError("You don't have instance of " + typeof(T).Name);

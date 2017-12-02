@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 ﻿using Constrollers;
 using Core.Field;
 using Core.Movement;
@@ -59,9 +59,9 @@ namespace Core.Enemies
             Shoot();
         }
 
-        protected override void OnDestroy()
+        protected override void OnDisable()
         {
-            base.OnDestroy();
+            base.OnDisable();
             Destroyed.Invoke(this);
         }
 

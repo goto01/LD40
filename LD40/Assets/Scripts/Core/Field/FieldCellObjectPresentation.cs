@@ -13,6 +13,7 @@ namespace Core.Field
         [SerializeField] private Texture2D _crackTexture1;
         [SerializeField] private Texture2D _crackTexture2;
         private BaseFieldCellObject _fieldCellObject;
+        private MaterialPropertyBlock _materialPropertyBlock;
 
         private Texture2D CurrentCrackTexture
         {
@@ -25,16 +26,17 @@ namespace Core.Field
             }
         }
 
-        private Material Material { get { return _meshRenderer.material; } }
-
         protected virtual void Awake()
         {
             _fieldCellObject = GetComponent<BaseFieldCellObject>();
+            _materialPropertyBlock = new MaterialPropertyBlock();
         }
 
         protected virtual void Update()
         {
-            Material.SetTexture(CrackTex, CurrentCrackTexture);
+            _meshRenderer.GetPropertyBlock(_materialPropertyBlock);
+            _materialPropertyBlock.SetTexture(CrackTex, CurrentCrackTexture);
+            _meshRenderer.SetPropertyBlock(_materialPropertyBlock);
         }
     }
 }

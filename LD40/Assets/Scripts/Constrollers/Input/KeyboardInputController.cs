@@ -9,6 +9,7 @@ namespace Constrollers.Input
         [SerializeField] private string _upInputName;
         [SerializeField] private string _downInputName;
         [SerializeField] private string _shotButtonInputName;
+        private Camera _camera;
 
         private int LeftInputValue { get { return Mathf.CeilToInt(UnityEngine.Input.GetAxis(_leftInputName)); } }
         private int RightInputValue { get { return Mathf.CeilToInt(UnityEngine.Input.GetAxis(_rightInputName)); } }
@@ -24,10 +25,16 @@ namespace Constrollers.Input
         {
             return UnityEngine.Input.GetButtonDown(_shotButtonInputName);
         }
+        
+        public override Vector3 GetPointerDirectionFrom(Vector3 point)
+        {
+            var dir = UnityEngine.Input.mousePosition - _camera.WorldToScreenPoint(point);
+            return new Vector3(dir.x, 0, dir.y).normalized;
+        }
 
         public override void AwakeSingleton()
         {
-            
+            _camera = Camera.main;
         }
     }
 }

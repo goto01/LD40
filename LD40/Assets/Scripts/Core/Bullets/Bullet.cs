@@ -10,6 +10,8 @@ namespace Core.Bullets
         [SerializeField] private Vector3 _direction;
         [SerializeField] private PoolableObject _poolableObject;
         [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private Vector3 _startPosition;
+        [SerializeField] private float _maxDistance;
 
         protected override Vector3 Direction
         {
@@ -21,21 +23,29 @@ namespace Core.Bullets
             _poolableObject = GetComponent<PoolableObject>();
         }
 
-        public void Init(Vector3 position, Vector3 direction)
+        public void Init(Vector3 position, Vector3 direction, float maxDistance, LayerMask mask)
         {
+            _layerMask = mask;
             transform.position = position;
             _direction = direction;
+            _startPosition = position;
+            _maxDistance = maxDistance;
         }
 
         public override void UpdateSelf()
         {
-            UpdateRaycasting();
+            UpdateForAlive();
             base.UpdateSelf();
         }
 
-        private void UpdateRaycasting()
+        private void UpdateForAlive()
         {
             if (Physics.Raycast(transform.position, Direction, Offset.magnitude, _layerMask))
+            {
+                _poolableObject.Deactivate();
+                return;
+            }
+            if (Vector3.Distance(transform.position, _startPosition) > _maxDistance)
                 _poolableObject.Deactivate();
         }
 

@@ -43,6 +43,7 @@ namespace Core.Enemies
             {
                 var player = PlayerController.Instance.Player;
                 var vector = player.transform.position - transform.position;
+                vector.y = 0.0f;
                 return vector;
             }
         }
@@ -76,8 +77,7 @@ namespace Core.Enemies
 
         private void Walk()
         {
-            var player = PlayerController.Instance.Player;
-            var vector = player.transform.position - transform.position;
+            var vector = VectorToPlayer;
             if (minDistanceToPlayer < vector.magnitude)
                 _speed = speedWithoutWeight / (weightyObject.CurrentWeight * weightToSpeedRatio);
             else if (vector.magnitude <= walkbackDistanceToPlayer)

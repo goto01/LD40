@@ -43,9 +43,10 @@ namespace Constrollers
             {
                 cellObjects[i].ResetWeight();
             }
-            for (int i = 0, n = weightyObjects.Count; i < n; ++i)
+            for (int i = weightyObjects.Count - 1; 0 <= i; --i)
             {
                 var weightyObject = weightyObjects[i];
+                if (weightyObject.WasFall) continue;
                 var position = weightyObject.transform.position;
                 var cellObject = GetCell(position);
                 if (cellObject != null && !cellObject.WasCrashed)
@@ -54,9 +55,14 @@ namespace Constrollers
                     position = weightyObject.transform.localPosition;
                     position.y = cellObject.transform.localPosition.y;
                     weightyObject.transform.localPosition = position;
+                    weightyObject.ResetFalling();
+                }
+                else
+                {
+                    weightyObject.PrepareToFall();
                 }
             }
-            for (int i = 0, n = cellObjects.Count; i < n; ++i)
+            for (int i = cellObjects.Count - 1; 0 <= i; --i)
             {
 //                Debug.LogFormat("cellObjects[{0}]={1}", i, cellObjects[i].CurrentWeight);
                 cellObjects[i].TestWeight();

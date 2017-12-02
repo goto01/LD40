@@ -23,8 +23,9 @@ namespace Core.Bullets
             _poolableObject = GetComponent<PoolableObject>();
         }
 
-        public void Init(Vector3 position, Vector3 direction, float maxDistance, LayerMask mask)
+        public void Init(Vector3 position, Vector3 direction, float speed, float maxDistance, LayerMask mask)
         {
+            _speed = speed;
             _layerMask = mask;
             transform.position = position;
             _direction = direction;

@@ -6,7 +6,7 @@ namespace Constrollers.Input
     {
         public abstract Vector2 GetMovementDirectin();
 
-        public abstract bool GetShotButtonDown();
+        public abstract bool GetShotButtonPressed();
 
         public abstract Vector3 GetPointerDirectionFrom(Vector3 point);
     }

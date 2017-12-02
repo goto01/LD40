@@ -21,9 +21,9 @@ namespace Constrollers.Input
             return new Vector2(RightInputValue - LeftInputValue, UpInputValue - DownInputValue);
         }
 
-        public override bool GetShotButtonDown()
+        public override bool GetShotButtonPressed()
         {
-            return UnityEngine.Input.GetButtonDown(_shotButtonInputName);
+            return UnityEngine.Input.GetButton(_shotButtonInputName);
         }
         
         public override Vector3 GetPointerDirectionFrom(Vector3 point)

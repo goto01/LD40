@@ -5,7 +5,7 @@ namespace Core.Movement
 {
     public abstract class BaseMovementObject : MonoBehaviour
     {
-        [SerializeField] private float _speed;
+        [SerializeField] protected float _speed;
         [SerializeField] private Transform _transform;
 
         protected abstract Vector3 Direction { get; }

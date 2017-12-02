@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Weapons;
 using UnityEngine;
 
 namespace Constrollers

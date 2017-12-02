@@ -10,16 +10,21 @@ namespace Core.Movement
 
         protected abstract Vector3 Direction { get; }
         protected Vector3 Offset { get { return Direction * _speed*Time.deltaTime; } }
+        
+        public virtual void UpdateSelf()
+        {
+            _transform.position += Offset;
+        }
 
-        protected virtual void Awake()
+        protected virtual void OnEnable()
         {
             _transform = transform;
             MovementController.Instance.Register(this);
         }
 
-        public virtual void UpdateSelf()
+        protected virtual void OnDisable()
         {
-            _transform.position += Offset;
+            MovementController.Instance.Remove(this);
         }
     }
 }

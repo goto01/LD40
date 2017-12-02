@@ -7,15 +7,21 @@ namespace Core.Field
     public class BaseFieldCellObject : MonoBehaviour
     {
         [SerializeField] private float radius = 0.5f;
-        [Tooltip("What weight can be sustained?")]
+        [Header("What weight can be sustained?")]
         [SerializeField] private float maxWeight = 5;
         [SerializeField] private float currentWeight;
-        [Tooltip("Settings")]
+        [Header("Settings")]
         [SerializeField] private float delayBeforeDestroy = 1.0f;
         [SerializeField] private float weightToPositionRation = 1.0f;
-        [Tooltip("Falling")]
+        [Header("Falling")]
         [SerializeField] private float fallingAcceleration = -20.0f;
         [SerializeField] private float minYPosition = -30.0f;
+        [Header("Bouncing")]
+        [SerializeField] private float offsetToAcceleration = 1.0f;
+        [SerializeField] private float springRate = 1.0f;
+        
+
+        private Coroutine BouncingCoroutine;
 
         public float WeightDelta { get { return CurrentWeight/maxWeight; } }
         public bool WasCrashed { get; private set; }
@@ -53,13 +59,27 @@ namespace Core.Field
 
         public virtual void TestWeight()
         {
+            if (WasCrashed) return;
             var position = transform.localPosition;
-            position.y = (currentWeight - maxWeight) * weightToPositionRation;
-            transform.localPosition = position;
             if (currentWeight <= 0)
+            {
+                position.y = (currentWeight - maxWeight) * weightToPositionRation;
+                transform.localPosition = position;
+                if (BouncingCoroutine != null)
+                {
+                    StopCoroutine(BouncingCoroutine);
+                    BouncingCoroutine = null;
+                }
                 Invoke("CrashCell", delayBeforeDestroy);
+            }
             else
+            {
+                if (null == BouncingCoroutine)
+                {
+                    BouncingCoroutine = StartCoroutine(Bouncing(position));
+                }
                 CancelInvoke("CrashCell");
+            }
         }
 
         private void CrashCell()
@@ -81,5 +101,17 @@ namespace Core.Field
             }
             gameObject.SetActive(false);
         }
+
+        private IEnumerator Bouncing(Vector3 startPosition)
+        {
+            transform.localPosition = startPosition;
+            for (float x = 0, max = -startPosition.y * offsetToAcceleration; x <= max; x += springRate * Time.deltaTime)
+            {
+                var p = transform.localPosition;
+                p.y = -Mathf.Sin(x) * startPosition.y * (1.0f - x / max);
+                transform.localPosition = p;
+                yield return null;
+            }
+        }    
     }
 }

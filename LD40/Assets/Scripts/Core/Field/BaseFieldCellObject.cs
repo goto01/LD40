@@ -74,7 +74,7 @@ namespace Core.Field
             }
             else
             {
-                if (null == BouncingCoroutine)
+                if (null == BouncingCoroutine && position.y < 0.0f)
                 {
                     BouncingCoroutine = StartCoroutine(Bouncing(position));
                 }

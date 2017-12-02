@@ -18,8 +18,9 @@ namespace Staff.Pool
         public PoolableObject Pop()
         {
             UpdatePool();
-            var @object = _pool[0];
-            _pool.RemoveAt(0);
+            var lastIndex = _pool.Count - 1;
+            var @object = _pool[lastIndex];
+            _pool.RemoveAt(lastIndex);
             @object.Disabled += ObjectDisabled;
             @object.gameObject.SetActive(true);
             return @object;
@@ -37,12 +38,16 @@ namespace Staff.Pool
 
         public void Dispose<T>(T @object) where T:MonoBehaviour
         {
-            @object.GetComponent<PoolableObject>().Deactivate();
+            Dispose(@object.GetComponent<PoolableObject>());
         }
 
         private void UpdatePool()
         {
-            if (_pool.Count == 0) CreateObjects(_poolSize);
+            if (_pool.Count == 0) 
+            {
+                _poolSize += _poolSize;
+                CreateObjects(_poolSize);
+            }
         }
 
         private void CreateObjects(int size)
@@ -55,7 +60,6 @@ namespace Staff.Pool
                 @object.name = _source.name;
                 _pool.Add(@object);
             }
-            _poolSize *= size;
         }
         
         private void ObjectDisabled(object sender, EventArgs e)

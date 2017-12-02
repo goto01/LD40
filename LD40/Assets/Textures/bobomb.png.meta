@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: d029cfae7dcd2034aa22fd9aceb4bacb
-timeCreated: 1512242676
+guid: 5a3785165e99aa84682d8d52611fad11
+timeCreated: 1512250857
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Shot_0
-    21300002: Shot_1
-    21300004: Shot_2
-    21300006: Shot_3
+    21300000: bobomb_0
+    21300002: bobomb_1
+    21300004: bobomb_2
+    21300006: bobomb_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -91,12 +91,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shot_0
+      name: bobomb_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 41
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -105,12 +105,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Shot_1
+      name: bobomb_1
       rect:
         serializedVersion: 2
-        x: 41
+        x: 32
         y: 0
-        width: 41
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -119,12 +119,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Shot_2
+      name: bobomb_2
       rect:
         serializedVersion: 2
-        x: 82
+        x: 64
         y: 0
-        width: 41
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -133,12 +133,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Shot_3
+      name: bobomb_3
       rect:
         serializedVersion: 2
-        x: 123
+        x: 96
         y: 0
-        width: 41
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}

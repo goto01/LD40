@@ -7,15 +7,24 @@ namespace Core.Movement
     {
         [SerializeField] protected float _speed;
         [SerializeField] private Transform _transform;
+        [SerializeField] private Animator _animator;
+        private int RunParameter = Animator.StringToHash("Running");
 
         protected abstract Vector3 Direction { get; }
         protected Vector3 Offset { get { return Direction * _speed*Time.deltaTime; } }
         
         public virtual void UpdateSelf()
         {
-            _transform.position += Offset;
+            var offset = Offset;
+            _transform.position += offset;
+            UpdateAnimator(offset.magnitude);
         }
 
+        private void UpdateAnimator(float offset)
+        {
+            _animator.SetBool(RunParameter, offset > Mathf.Epsilon);
+        }
+        
         protected virtual void OnEnable()
         {
             _transform = transform;

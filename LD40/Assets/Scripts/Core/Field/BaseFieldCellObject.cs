@@ -1,4 +1,5 @@
-﻿using Constrollers;
+﻿using System.Collections;
+using Constrollers;
 using UnityEngine;
 
 namespace Core.Field
@@ -12,6 +13,9 @@ namespace Core.Field
         [Tooltip("Settings")]
         [SerializeField] private float delayBeforeDestroy = 1.0f;
         [SerializeField] private float weightToPositionRation = 1.0f;
+        [SerializeField] private float fallingDuration = 5.0f;
+
+        private bool wasCrashed;
 
         public float WeightDelta { get { return CurrentWeight/maxWeight; } }
 
@@ -65,8 +69,25 @@ namespace Core.Field
 
         private void DestroyCell()
         {
-            // todo
-            //Debug.Log("DestroyCell");
+            if (wasCrashed) return;
+            wasCrashed = true;
+            StartCoroutine(Falling());
+        }
+
+        IEnumerator Falling()
+        {
+            var acceleration = 1.0f;
+            var speed = 0.0f;
+            for (float t = 0.0f; t < fallingDuration; t += Time.deltaTime)
+            {
+                var dt = Time.deltaTime;
+                var position = transform.position;
+                position.y -= speed * dt + acceleration * dt * dt * 0.5f;
+                transform.position = position;
+                speed += speed + acceleration * dt;
+                yield return null;
+            }
+            gameObject.SetActive(false);
         }
     }
 }

@@ -1,16 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Core.Singleton;
 
-public class BaseController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+namespace Constrollers
+{
+    public abstract class BaseController<T> : SingletonMonoBahaviour<T> where T : BaseController<T>
+    {
+    }
 }

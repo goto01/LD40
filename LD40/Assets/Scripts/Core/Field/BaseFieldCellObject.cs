@@ -17,6 +17,11 @@ namespace Assets.Scripts.Core.Field
             get { return radius; }
         }
 
+        public float CurrentWeight
+        {
+            get { return currentWeight; }
+        }
+
         protected virtual void Awake()
         {
             FieldCellsController.Instance.Register(this);

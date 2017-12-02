@@ -40,7 +40,6 @@ namespace Assets.Scripts.Constrollers
         protected virtual void Update()
         {
             // todo: optimize this
-            var deltaTime = Time.deltaTime;
             for (int i = 0, n = cellObjects.Count; i < n; ++i)
             {
                 cellObjects[i].ResetWeight();
@@ -51,10 +50,11 @@ namespace Assets.Scripts.Constrollers
                 var position = weightyObject.transform.position;
                 var cellObject = GetCell(position);
                 if (cellObject != null)
-                    cellObject.AddWeight(weightyObject.CurrentWeight * deltaTime);
+                    cellObject.AddWeight(weightyObject.CurrentWeight);
             }
             for (int i = 0, n = cellObjects.Count; i < n; ++i)
             {
+                Debug.LogFormat("cellObjects[{0}]={1}", i, cellObjects[i].CurrentWeight);
                 cellObjects[i].TestWeight();
             }
         }

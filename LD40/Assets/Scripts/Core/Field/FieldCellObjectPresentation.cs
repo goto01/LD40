@@ -19,9 +19,9 @@ namespace Core.Field
         {
             get
             {
-                if (_fieldCellObject.WeightDelta < Mathf.Epsilon) return _noneCrackTexture;
-                if (_fieldCellObject.WeightDelta < .50f) return _crackTexture0;
-                if (_fieldCellObject.WeightDelta < .75f) return _crackTexture1;
+                if (_fieldCellObject.WeightDelta > .75) return _noneCrackTexture;
+                if (_fieldCellObject.WeightDelta > .50f) return _crackTexture0;
+                if (_fieldCellObject.WeightDelta > .25f) return _crackTexture1;
                 return _crackTexture2;
             }
         }

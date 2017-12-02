@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.5
-  maxWeight: 5
+  maxWeight: 50
   currentWeight: 0
   delayBeforeDestroy: 1
   weightToPositionRation: 0.02

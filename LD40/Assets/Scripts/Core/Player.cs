@@ -12,7 +12,10 @@ namespace Core
         [SerializeField] private int _actualHealth;
         [SerializeField] private Transform _actualTransform;
         [SerializeField] private Transform _gun;
+        [SerializeField] private Animator _bulletSpawnerAnimator;
+        [SerializeField] private Transform _bulletSpawnerTransform;
         private WeaponComponent _weaponComponent;
+        private int _shotParameter = Animator.StringToHash("Shot");
 
         private Vector3 Direction
         {
@@ -43,19 +46,10 @@ namespace Core
             _gun.localEulerAngles = Quaternion.FromToRotation(Vector3.right, new Vector3(dir.x * Mathf.Sign(dir.x), -dir.z, 0)).eulerAngles;
         }
 
-        float Angle360(Vector3 v1, Vector3 v2, Vector3 n)
-        {
-            float angle = Vector3.Angle(v1, v2);
-            
-            float sign = Mathf.Sign(Vector3.Dot(n, Vector3.Cross(v1, v2)));
-            float signed_angle = angle * sign;
-            
-            return (signed_angle + 180) % 360;
-        }
-
         private void MakeShot()
         {
-            _weaponComponent.Shot(transform.position, Direction, PlayerController.Instance.PlayerBulletsLayerMask);
+            if (_weaponComponent.Shot(_bulletSpawnerTransform.position, Direction, PlayerController.Instance.PlayerBulletsLayerMask))
+                _bulletSpawnerAnimator.SetTrigger(_shotParameter);
         }
 
 #if UNITY_EDITOR

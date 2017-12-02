@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4315137012070700}
   - component: {fileID: 33795649553583768}
   - component: {fileID: 23295295053757086}
+  - component: {fileID: 95180293611063840}
   m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
@@ -132,6 +133,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!95 &95180293611063840
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1171664706857128}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114429913308539126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0
   _transform: {fileID: 0}
+  _animator: {fileID: 95180293611063840}
   shootInterval: 1
   minDistanceToPlayer: 2
   walkbackDistanceToPlayer: 1

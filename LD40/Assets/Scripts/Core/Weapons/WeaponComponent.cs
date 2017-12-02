@@ -10,11 +10,12 @@ namespace Core.Weapons
 
         private bool ShotPossible { get { return _lastShotTime + _weapon.ShotDelay < Time.time; } }
 
-        public void Shot(Vector3 position, Vector3 direction, LayerMask mask)
+        public bool Shot(Vector3 position, Vector3 direction, LayerMask mask)
         {
-            if (!ShotPossible) return;
+            if (!ShotPossible) return false;
             _lastShotTime = Time.time;
             WeaponController.Instance.MakeShot(_weapon, position, direction, mask);
+            return true;
         }
     }
 }

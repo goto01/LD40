@@ -2,7 +2,7 @@
 Properties {
     _MainTex ("Main texture", 2D) = "white" {}
 	_Pixels ("Pixels", Vector) = (10,10,0,0)
-	_RGBOffset ("RGB offset", Vector) = (0.1, 0, 0, 0)
+	_RGBOffsetDelta ("RGB offset", float) = 0
 }
 
 SubShader {
@@ -44,15 +44,15 @@ SubShader {
 			sampler2D _GrayScaleTexture;
 			sampler2D _GrayScaleTextureWave;
 			fixed4 _Pixels;
-			fixed2 _RGBOffset;
+			fixed _RGBOffsetDelta;
 						
 			fixed4 frag (v2f i) : SV_Target
 			{	
 				int2 pixel = i.texcoord * _Pixels.xy;
 				//fixed value = saturate(pixel.y % 5 + .9);
 				float2 uv = round(pixel + 0.5) / _Pixels.xy;
-				float2 uvOffset0 = round((i.texcoord + _RGBOffset) * _Pixels.xy + 0.5) / _Pixels.xy;
-				float2 uvOffset1 = round((i.texcoord - _RGBOffset) * _Pixels.xy + 0.5) / _Pixels.xy;
+				float2 uvOffset0 = round((i.texcoord + _RGBOffsetDelta) * _Pixels.xy + 0.5) / _Pixels.xy;
+				float2 uvOffset1 = round((i.texcoord - _RGBOffsetDelta) * _Pixels.xy + 0.5) / _Pixels.xy;
 				fixed4 col = tex2D(_MainTex, uv);
 				fixed4 leftCol = tex2D(_MainTex, uvOffset0);
 				fixed4 rightCol = tex2D(_MainTex, uvOffset1);

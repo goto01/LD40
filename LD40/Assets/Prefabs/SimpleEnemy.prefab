@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114964170935486324}
   - component: {fileID: 114681483756640686}
   - component: {fileID: 54041774752968218}
-  - component: {fileID: 135202254486969038}
+  - component: {fileID: 136207620919586912}
   m_Layer: 10
   m_Name: SimpleEnemy
   m_TagString: Untagged
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab75dd4849830c64793494f6f13c5d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 11400000, guid: 6b6fde44776b87944bee729ca15ecdb7, type: 2}
+  _weapon: {fileID: 11400000, guid: 8421458390caa85438ecce31d8c4e0c2, type: 2}
   _lastShotTime: 0
 --- !u!114 &114681483756640686
 MonoBehaviour:
@@ -201,8 +201,8 @@ MonoBehaviour:
   bulletsLayerMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!135 &135202254486969038
-SphereCollider:
+--- !u!136 &136207620919586912
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -210,8 +210,9 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.16432786
+  m_Radius: 0.21990448
+  m_Height: 10
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212242742926348178
 SpriteRenderer:

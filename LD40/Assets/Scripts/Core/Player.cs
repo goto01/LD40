@@ -1,5 +1,6 @@
 ﻿using Constrollers;
 using Constrollers.Input;
+using Controllers;
 using Core.Weapons;
 using UnityEngine;
 
@@ -48,7 +49,8 @@ namespace Core
 
         private void MakeShot()
         {
-            if (_weaponComponent.Shot(_bulletSpawnerTransform.position, Direction, PlayerController.Instance.PlayerBulletsLayerMask))
+            if (_weaponComponent.Shot(_bulletSpawnerTransform.position, Direction,
+                PlayerController.Instance.PlayerBulletsLayerMask))
                 _bulletSpawnerAnimator.SetTrigger(_shotParameter);
         }
 

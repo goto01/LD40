@@ -1,4 +1,5 @@
 ﻿using Constrollers;
+using Controllers;
 using Core.Field;
 using Core.Movement;
 using Staff.Pool;
@@ -50,6 +51,7 @@ namespace Core.Bullets
             if (Physics.SphereCast(transform.position, _radius, Direction, out ray, Offset.magnitude, _layerMask))
             {
                 _poolableObject.Deactivate();
+                EffectController.Instance.Shake();
                 WeightController.Instance.GiveWeightToObject(_weightValue, ray.collider.GetComponent<BaseWeightyObject>());
                 return;
             }

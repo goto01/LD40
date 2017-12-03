@@ -1,6 +1,8 @@
 ﻿﻿using System;
+﻿using System.Collections;
 ﻿using Constrollers;
-using Core.Field;
+﻿using Controllers;
+﻿using Core.Field;
 using Core.Movement;
 using Core.Weapons;
 using UnityEngine;
@@ -19,7 +21,12 @@ namespace Core.Enemies
         [SerializeField] private float speedWithoutWeight = 1.0f;
         [SerializeField] private float weightToSpeedRatio = 1.0f;
         [SerializeField] private LayerMask bulletsLayerMask;
-        
+        [SerializeField] private bool _spawning;
+        [SerializeField] private float _spawnDuration;
+        [SerializeField] private float _spawnHeight;
+
+        public bool Spawning { get { return _spawning; } }
+
         public event Action<Enemy> Destroyed = delegate { };
         
         private BaseWeightyObject weightyObject;
@@ -54,8 +61,15 @@ namespace Core.Enemies
             weaponComponent = GetComponent<WeaponComponent>();
         }
 
+        public override void UpdateSelf()
+        {
+            if (_spawning) return;
+            base.UpdateSelf();
+        }
+
         public virtual void Update()
         {
+            if (_spawning) return;
             Walk();
             Shoot();
         }
@@ -72,7 +86,8 @@ namespace Core.Enemies
             position.x += fieldSize.x * (Random.value - 0.5f);
             position.y = 0.0f;
             position.z += fieldSize.y * (Random.value - 0.5f);
-            transform.position = position;
+            transform.position = position + Vector3.up*_spawnHeight;
+            StartCoroutine(Spawn(position));
         }
 
         private void Walk()
@@ -97,6 +112,24 @@ namespace Core.Enemies
         {
             weaponComponent.Shot(transform.position, VectorToPlayer.normalized, bulletsLayerMask);
             nextShootTime = Time.time + shootInterval;
+        }
+
+        private IEnumerator Spawn(Vector3 origin)
+        {
+            _spawning = true;
+            var startTime = Time.time;
+            transform.position = origin +  Vector3.up* _spawnHeight;
+            while (startTime + _spawnDuration > Time.time)
+            {
+                //_shadow.position = Vector3.zero;
+                var pos = transform.position;
+                pos.y = Mathf.Lerp(_spawnHeight, origin.y, (Time.time - startTime)/_spawnDuration);
+                transform.position = pos;
+                yield return null;
+            }
+            transform.position = origin;
+            _spawning = false;
+            EffectController.Instance.Shake();
         }
     }
 }

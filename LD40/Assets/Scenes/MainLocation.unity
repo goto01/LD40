@@ -970,6 +970,8 @@ MonoBehaviour:
   _maxWeightValue: 23
   _weightBar: {fileID: 1501306213}
   _weightBarShadow: {fileID: 1948339309}
+  _distanceBar: {fileID: 1293712503}
+  _distanceBarShadow: {fileID: 1768357770}
   _weightText: {fileID: 1303004063}
   _weightTextShadow: {fileID: 20948971}
 --- !u!1 &674820590

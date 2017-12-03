@@ -17,8 +17,7 @@ namespace Core.Bullets
         [SerializeField] private float _maxDistance;
         [SerializeField] private int _weightValue;
         [SerializeField] private float _radius;
-
-        private Animator _animator;
+        
         private int _destroyTrigger = Animator.StringToHash("Destroy");
 
         protected override Vector3 Direction
@@ -28,7 +27,6 @@ namespace Core.Bullets
 
         protected virtual void Awake()
         {
-            _animator = GetComponent<Animator>();
             _poolableObject = GetComponent<PoolableObject>();
         }
 

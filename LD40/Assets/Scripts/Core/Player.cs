@@ -70,8 +70,9 @@ namespace Core
         private IEnumerator DashCoroutine()
         {
             _spriteAnimator.SetBool(_dashParameter, (_dashing = true));
-            var speed = _movementObject.Speed;
-            _movementObject.Speed = _dashSpeed;
+            var speed = _movementObject.OrinSpeed;
+            _movementObject.OrinSpeed = _dashSpeed;
+            _movementObject.UseOriginSpeed = true;
             _movementObject.BlockGettingDirection = true;
             var startPos = transform.position;
             while (Vector3.Distance(startPos, transform.position) < _dashDistance)
@@ -79,7 +80,8 @@ namespace Core
                 EffectController.Instance.SpawnGhost(transform.position, _spriteRenderer.sprite, _spriteRenderer.transform.localScale);
                 yield return null;
             }
-            _movementObject.Speed = speed;
+            _movementObject.UseOriginSpeed = false;
+            _movementObject.OrinSpeed = speed;
             _movementObject.BlockGettingDirection = false;
             _spriteAnimator.SetBool(_dashParameter, (_dashing = false));
         }

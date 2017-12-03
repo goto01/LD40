@@ -18,6 +18,12 @@ namespace Controllers
         [SerializeField] private CameraPostEffectComponent _cameraPostEffectComponent;
         [SerializeField] private float _fadeDuration;
         [SerializeField] private Pool _ghostPool;
+        [SerializeField] private Pool _plusPool;
+        [SerializeField] private float _plusSpawnDelay;
+        [SerializeField] private float _plusSpawnTimeStamp;
+        [SerializeField] private Pool _minusPool;
+        [SerializeField] private float _minusSpawnDelay;
+        [SerializeField] private float _minusSpawnTimeStamp;
 
         public float FadeDuration { get { return _fadeDuration; } }
 
@@ -49,6 +55,20 @@ namespace Controllers
             spriteRenderer.sprite = sprite;
             spriteRenderer.transform.position = position;
             spriteRenderer.transform.localScale = scale;
+        }
+
+        public void SpawnPlus(Vector3 position)
+        {
+            if (_plusSpawnTimeStamp + _plusSpawnDelay > Time.time) return;
+            _plusSpawnTimeStamp = Time.time;
+            _plusPool.Pop<Transform>().position = position;
+        }
+
+        public void SpawnMinus(Vector3 position)
+        {
+            if (_minusSpawnTimeStamp + _minusSpawnDelay > Time.time) return;
+            _minusSpawnTimeStamp = Time.time;
+            _minusPool.Pop<Transform>().position = position;
         }
 
         private IEnumerator FadeCoroutine(float from, float to)

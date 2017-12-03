@@ -8,17 +8,30 @@ namespace Core.Movement
     {
         [SerializeField] protected float _speed;
         [SerializeField] private Transform _transform;
-        [SerializeField] private Animator _animator;
+        [SerializeField] protected Animator _animator;
         [SerializeField] private float _weightToSpeedRatio = 1;
+        [SerializeField] private bool _useOroginSpeed;
 
         private BaseWeightyObject baseWeightyObject;
         private int RunParameter = Animator.StringToHash("Running");
+
+        public bool UseOriginSpeed
+        {
+            get { return _useOroginSpeed; }
+            set { _useOroginSpeed = value; }
+        }
+
+        public float OrinSpeed
+        {
+            get { return _speed;}
+            set { _speed = value; }
+        }
 
         public float Speed
         {
             get
             {
-                return baseWeightyObject == null ? _speed : _speed/baseWeightyObject.CurrentWeight*_weightToSpeedRatio;
+                return baseWeightyObject == null || _useOroginSpeed ? _speed : _speed/baseWeightyObject.CurrentWeight*_weightToSpeedRatio;
             }
             set { _speed = value; }
         }

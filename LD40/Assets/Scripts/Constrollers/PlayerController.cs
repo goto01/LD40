@@ -24,6 +24,7 @@ namespace Constrollers
         protected virtual void Update()
         {
             if (PauseController.Instance.Paused) return;
+            if (!_player.gameObject.activeSelf) PauseController.Instance.ShowRestartUI();
             _player.UpdateSelf();
         }
     }

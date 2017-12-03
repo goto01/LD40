@@ -34,7 +34,7 @@ namespace Core.Weapons
         {
             if (!ShotPossible) return false;
             _lastShotTime = Time.time;
-            //baseWeightyObject.CurrentWeight -= _weapon.OneShotWeight;
+            baseWeightyObject.CurrentWeight -= _weapon.OneShotWeight;
             WeaponController.Instance.MakeShot(_weapon, position, direction, mask);
             return true;
         }

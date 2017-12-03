@@ -10,7 +10,7 @@ namespace Core.Movement
         [SerializeField] protected float _speed;
         [SerializeField] private Transform _transform;
         [SerializeField] private bool _useOroginSpeed;
-        [SerializeField] private Animator _animator;
+        [SerializeField] protected Animator _animator;
         [SerializeField] private SpriteRenderer[] _renderers;
         [SerializeField] private float _weightToSpeedRatio = 1;
         [SerializeField] private Color _shotFlashColor = Color.black;

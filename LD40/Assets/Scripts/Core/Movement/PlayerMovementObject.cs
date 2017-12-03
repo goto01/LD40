@@ -11,7 +11,11 @@ namespace Core.Movement
         public bool BlockGettingDirection
         {
             get { return _blockGettingDirection; }
-            set { _blockGettingDirection = value; }
+            set
+            {
+                if (Mathf.Abs(_direction.magnitude) < Mathf.Epsilon) _direction = Vector3.forward;
+                _blockGettingDirection = value;
+            }
         }
 
         protected override Vector3 Direction

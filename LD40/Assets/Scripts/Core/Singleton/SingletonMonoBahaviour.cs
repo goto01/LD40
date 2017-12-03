@@ -19,6 +19,11 @@ namespace Core.Singleton
             UnitySingleton<T>.Awake(this as T);
         }
 
+        protected void OnEnable()
+        {
+            WasDestoyed = false;
+        }
+
         protected void OnDestroy()
         {
             WasDestoyed = true;

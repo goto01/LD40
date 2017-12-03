@@ -25,6 +25,7 @@ namespace Constrollers
 
         protected virtual void Update()
         {
+            if (PauseController.Instance.Paused) return;
             UpdateMovementObjects();
         }
 

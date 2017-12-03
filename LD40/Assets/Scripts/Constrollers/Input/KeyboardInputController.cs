@@ -10,6 +10,7 @@ namespace Constrollers.Input
         [SerializeField] private string _downInputName;
         [SerializeField] private string _shotButtonInputName;
         [SerializeField] private string _dashButtonInputName;
+        [SerializeField] private string _pauseButtonInputName;
         private Camera _camera;
 
         private int LeftInputValue { get { return Mathf.CeilToInt(UnityEngine.Input.GetAxis(_leftInputName)); } }
@@ -44,6 +45,11 @@ namespace Constrollers.Input
             float enter;
             plane.Raycast(ray, out enter);
             return (ray.GetPoint(enter) - point).normalized;
+        }
+
+        public override bool GetPauseButtonDown()
+        {
+            return UnityEngine.Input.GetButtonDown(_pauseButtonInputName);
         }
 
         public override void AwakeSingleton()

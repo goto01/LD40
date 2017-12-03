@@ -16,7 +16,6 @@ namespace Controllers
         [SerializeField] private bool _shaking;
         [SerializeField] private Transform _cameraTransform;
         [SerializeField] private CameraPostEffectComponent _cameraPostEffectComponent;
-        [SerializeField] private AnimationCurve _fadeAnimationCurve;
         [SerializeField] private float _fadeDuration;
 
         public float FadeDuration { get { return _fadeDuration; } }
@@ -48,9 +47,11 @@ namespace Controllers
             var startTime = Time.time;
             while (startTime + _fadeDuration > Time.time)
             {
-                _cameraPostEffectComponent.FadeDleta = Mathf.Lerp(from, to, _fadeAnimationCurve.Evaluate(Time.time - startTime));
+                _cameraPostEffectComponent.FadeDleta = Mathf.Lerp(from, to, (Time.time - startTime)/_fadeDuration);
+                //Debug.Log(Mathf.Lerp(from, to, (Time.time - startTime) / _fadeDuration));
                 yield return null;
             }
+            _cameraPostEffectComponent.FadeDleta = to;
         }
 
         private IEnumerator Shake(float duration)

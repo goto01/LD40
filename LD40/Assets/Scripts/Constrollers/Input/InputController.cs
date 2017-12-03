@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Constrollers.Input
 {
@@ -11,5 +12,7 @@ namespace Constrollers.Input
         public abstract bool GetDashButtonDown();
 
         public abstract Vector3 GetPointerDirectionFrom(Vector3 point);
+
+        public abstract bool GetPauseButtonDown();
     }
 }

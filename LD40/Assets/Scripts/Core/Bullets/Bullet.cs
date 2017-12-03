@@ -51,7 +51,6 @@ namespace Core.Bullets
             if (Physics.SphereCast(transform.position, _radius, Direction, out ray, Offset.magnitude, _layerMask))
             {
                 _poolableObject.Deactivate();
-                EffectController.Instance.Shake();
                 WeightController.Instance.GiveWeightToObject(_weightValue, ray.collider.GetComponent<BaseWeightyObject>());
                 return;
             }

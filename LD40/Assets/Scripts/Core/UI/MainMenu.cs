@@ -14,13 +14,13 @@ namespace Core.UI
 
         protected virtual void Start()
         {
-            EffectController.Instance.FadeOut();
+            EffectController.Instance.FadeIn();
             _menuAnimator.SetTrigger(FadeInParameter);
         }
 
         public void SwitchScene()
         {
-            EffectController.Instance.FadeIn();
+            EffectController.Instance.FadeOut();
             _menuAnimator.SetTrigger(FadeOutParameter);
             Invoke("SwitchToNextScene", EffectController.Instance.FadeDuration);
         }

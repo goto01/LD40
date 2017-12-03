@@ -5,6 +5,8 @@ namespace Constrollers
 {
     public class StatisticController : MonoBehaviour
     {
+        public float StartTime;
+        public float Duration;
         public float Distance;
         public int Enemies;
         public int WeightAdded;
@@ -17,8 +19,9 @@ namespace Constrollers
                 instance.OnEnemyWasDefeated();
         }
 
-        private void Start()
+        private void OnEnable()
         {
+            StartTime = Time.time;
             var weightlyObject = PlayerController.Instance.PLayerWeightyObject;
             weightlyObject.WeightWasChanged += OnWeightWasChanged;
             var movementObject = weightlyObject.GetComponent<BaseMovementObject>();
@@ -27,12 +30,14 @@ namespace Constrollers
 
         private void OnDisable()
         {
+            Duration = Time.time - StartTime;
             var weightlyObject = PlayerController.Instance.PLayerWeightyObject;
             weightlyObject.WeightWasChanged -= OnWeightWasChanged;
             var movementObject = weightlyObject.GetComponent<BaseMovementObject>();
             movementObject.Moved -= OnMoved;
-        
-            Debug.LogFormat("{0}, {1}, {2}, {3}", Distance, Enemies, WeightAdded, WeightRemoved);
+
+            Debug.LogFormat("Duration={0}, Distance={1}, Enemies={2}, WeightAdded={3} WeightRemoved={4}",
+                Duration, Distance, Enemies, WeightAdded, WeightRemoved);
         }
 
         private void OnWeightWasChanged(int current, int delta)

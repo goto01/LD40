@@ -5,12 +5,23 @@ namespace Core.Movement
 {
     class PlayerMovementObject : BaseMovementObject
     {
+        [SerializeField] private bool _blockGettingDirection;
+        [SerializeField] private Vector3 _direction;
+
+        public bool BlockGettingDirection
+        {
+            get { return _blockGettingDirection; }
+            set { _blockGettingDirection = value; }
+        }
+
         protected override Vector3 Direction
         {
             get
             {
+                if (_blockGettingDirection) return _direction;
                 var dir = InputController.Instance.GetMovementDirection();
-                return new Vector3(dir.x, 0, dir.y);
+                _direction = new Vector3(dir.x, 0, dir.y);
+                return _direction;
             }
         }
     }

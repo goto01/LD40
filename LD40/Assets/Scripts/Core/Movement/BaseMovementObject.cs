@@ -13,6 +13,11 @@ namespace Core.Movement
         private BaseWeightyObject baseWeightyObject;
         private int RunParameter = Animator.StringToHash("Running");
 
+        public float Speed
+        {
+            get { return _speed; }
+            set { _speed = value; }
+        }
         protected abstract Vector3 Direction { get; }
         protected Vector3 Offset { get { return Direction * _speed*Time.deltaTime; } }
         

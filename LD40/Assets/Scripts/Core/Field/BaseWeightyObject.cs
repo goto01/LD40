@@ -13,10 +13,17 @@ namespace Core.Field
         [SerializeField] private float weightToScaleRate = 1.0f;
         [SerializeField] private float distanceToWeightRate = 1.0f;
         [Header("Falling")]
+        [SerializeField] private bool _notFallable;
         [SerializeField] private float fallingDelay = 1.0f;
         [SerializeField] private float fallingAcceleration = -20.0f;
         [SerializeField] private float minYPosition = -30.0f;
-
+        
+        public bool NotFallable
+        {
+            get { return _notFallable; }
+            set { _notFallable = true; }
+        }
+        
         private float? fallingTime;
         private float additionalWeight;
 
@@ -67,6 +74,7 @@ namespace Core.Field
 
         public void PrepareToFall()
         {
+            if (_notFallable) return;
             if (WasFall) return;
             var time = Time.time;
             if (fallingTime < time)

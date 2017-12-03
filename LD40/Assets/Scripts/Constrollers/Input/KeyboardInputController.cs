@@ -9,6 +9,7 @@ namespace Constrollers.Input
         [SerializeField] private string _upInputName;
         [SerializeField] private string _downInputName;
         [SerializeField] private string _shotButtonInputName;
+        [SerializeField] private string _dashButtonInputName;
         private Camera _camera;
 
         private int LeftInputValue { get { return Mathf.CeilToInt(UnityEngine.Input.GetAxis(_leftInputName)); } }
@@ -30,7 +31,12 @@ namespace Constrollers.Input
         {
             return UnityEngine.Input.GetButton(_shotButtonInputName);
         }
-        
+
+        public override bool GetDashButtonDown()
+        {
+            return UnityEngine.Input.GetButtonDown(_dashButtonInputName);
+        }
+
         public override Vector3 GetPointerDirectionFrom(Vector3 point)
         {
             var plane = new Plane(Vector3.up, Vector3.zero);

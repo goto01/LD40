@@ -275,6 +275,10 @@ MonoBehaviour:
   _gun: {fileID: 4065557915578590}
   _bulletSpawnerAnimator: {fileID: 95216888894580086}
   _bulletSpawnerTransform: {fileID: 4902149791855078}
+  _dashSpeed: 10
+  _dashing: 0
+  _dashDistance: 1
+  _spriteAnimator: {fileID: 95045119002404662}
 --- !u!114 &114597671899115492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,6 +295,7 @@ MonoBehaviour:
   currentWeight: 5
   weightToScaleRate: 0.5
   distanceToWeightRate: 1
+  _notFallable: 0
   fallingDelay: 1
   fallingAcceleration: -20
   minYPosition: -30
@@ -308,6 +313,8 @@ MonoBehaviour:
   _speed: 2.5
   _transform: {fileID: 0}
   _animator: {fileID: 95045119002404662}
+  _blockGettingDirection: 0
+  _direction: {x: 0, y: 0, z: 0}
 --- !u!136 &136805566586494146
 CapsuleCollider:
   m_ObjectHideFlags: 1

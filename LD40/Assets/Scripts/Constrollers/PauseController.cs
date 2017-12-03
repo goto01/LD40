@@ -34,6 +34,7 @@ namespace Constrollers
 
         public void ShowRestartUI()
         {
+            UIController.Instance.HideUI();
             EffectController.Instance.FadeOut();
             Invoke("Restart", EffectController.Instance.FadeDuration);
             

@@ -54,7 +54,16 @@ SubShader {
 						
 			fixed4 frag (v2f i) : SV_Target
 			{	
-				fixed4 col = tex2D(_MainTex, i.texcoord);
+				int2 pixel = i.texcoord * _Pixels.xy;
+				//fixed value = saturate(pixel.y % 5 + .9);
+				float2 uv = round(pixel + 0.5) / _Pixels.xy;
+				float2 uvOffset0 = round((i.texcoord + _RGBOffsetDelta) * _Pixels.xy + 0.5) / _Pixels.xy;
+				float2 uvOffset1 = round((i.texcoord - _RGBOffsetDelta) * _Pixels.xy + 0.5) / _Pixels.xy;
+				fixed4 col = tex2D(_MainTex, uv);
+				fixed4 leftCol = tex2D(_MainTex, uvOffset0);
+				fixed4 rightCol = tex2D(_MainTex, uvOffset1);
+				col.r = leftCol.r;
+				col.b = rightCol.b;
 				fixed fadeStep = step(tex2D(_FadeTexture, i.texcoord).r, _FadeDelta);
 				col.rgb = col.rgb * fadeStep + _FadeColor.rgb * (1-fadeStep);
 				return col;

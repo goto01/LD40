@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Constrollers;
+using Controllers;
 using Core.Movement;
 using UnityEngine;
 
@@ -78,7 +79,9 @@ namespace Core.Field
         {
             delta.y = 0.0f;
             additionalWeight = CurrentWeight + additionalWeight;
+            var temp = Mathf.Floor(additionalWeight);
             additionalWeight -= distanceToWeightRate * delta.magnitude;
+            if (temp < Mathf.Floor(additionalWeight)) EffectController.Instance.SpawnMinus(transform.position);
             CurrentWeight = Mathf.Max(Mathf.FloorToInt(additionalWeight), minWeight);
             additionalWeight -= CurrentWeight;
             additionalWeight = Mathf.Max(additionalWeight, 0.0f);

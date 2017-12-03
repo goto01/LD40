@@ -3,6 +3,9 @@ Properties {
     _MainTex ("Main texture", 2D) = "white" {}
 	_Pixels ("Pixels", Vector) = (10,10,0,0)
 	_RGBOffsetDelta ("RGB offset", float) = 0
+	_FadeTexture ("Fade texture", 2D) = "white" {}
+	_FadeDelta ("Fade delta", range(-.1, 1.1)) = 0
+	_FadeColor ("Fade color", color) = (1,1,1,1)
 }
 
 SubShader {
@@ -45,6 +48,9 @@ SubShader {
 			sampler2D _GrayScaleTextureWave;
 			fixed4 _Pixels;
 			fixed _RGBOffsetDelta;
+			sampler2D _FadeTexture;
+			fixed _FadeDelta;
+			fixed4 _FadeColor;
 						
 			fixed4 frag (v2f i) : SV_Target
 			{	
@@ -58,7 +64,8 @@ SubShader {
 				fixed4 rightCol = tex2D(_MainTex, uvOffset1);
 				col.r = leftCol.r;
 				col.b = rightCol.b;
-				//col.rgb *= value;
+				fixed fadeStep = step(tex2D(_FadeTexture, i.texcoord).r, _FadeDelta);
+				col.rgb = col.rgb * fadeStep + _FadeColor.rgb * (1-fadeStep);
 				return col;
 			}
 		ENDCG

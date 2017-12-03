@@ -16,6 +16,10 @@ namespace Controllers
         [SerializeField] private bool _shaking;
         [SerializeField] private Transform _cameraTransform;
         [SerializeField] private CameraPostEffectComponent _cameraPostEffectComponent;
+        [SerializeField] private AnimationCurve _fadeAnimationCurve;
+        [SerializeField] private float _fadeDuration;
+
+        public float FadeDuration { get { return _fadeDuration; } }
 
         public override void AwakeSingleton()
         {
@@ -27,6 +31,26 @@ namespace Controllers
         {
             if (_shaking) return;
             StartCoroutine(Shake(_shakeDuration));
+        }
+
+        public void FadeIn()
+        {
+            StartCoroutine(FadeCoroutine(-.1f, 1.1f));
+        }
+
+        public void FadeOut()
+        {
+            StartCoroutine(FadeCoroutine(1.1f, -.1f));
+        }
+
+        private IEnumerator FadeCoroutine(float from, float to)
+        {
+            var startTime = Time.time;
+            while (startTime + _fadeDuration > Time.time)
+            {
+                _cameraPostEffectComponent.FadeDleta = Mathf.Lerp(from, to, _fadeAnimationCurve.Evaluate(Time.time - startTime));
+                yield return null;
+            }
         }
 
         private IEnumerator Shake(float duration)

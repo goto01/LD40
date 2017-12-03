@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1872757129961046}
+  m_IsPrefabParent: 1
+--- !u!1 &1872757129961046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4069664714774350}
+  - component: {fileID: 114898087243128660}
+  - component: {fileID: 114635539552518246}
+  - component: {fileID: 114385686186356674}
+  - component: {fileID: 114851157298808432}
+  - component: {fileID: 114983010205528448}
+  - component: {fileID: 114004005535545976}
+  - component: {fileID: 114949889656330522}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4069664714774350
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872757129961046}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114004005535545976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872757129961046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9338171467e15b645b06a9dc90eadd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114385686186356674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872757129961046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f422a433e8328b4c989bc50f4400891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bullets: {fileID: 0}
+  _maxDistance: 10
+--- !u!114 &114635539552518246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872757129961046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0708cb63fe11f5488717af9da3b9cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leftInputName: left keyboard
+  _rightInputName: right keyboard
+  _upInputName: up keyboard
+  _downInputName: down keyboard
+  _shotButtonInputName: shot button keyboard
+  _dashButtonInputName: dash button keyboard
+--- !u!114 &114851157298808432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872757129961046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7cbdb8d6a96c674797894291b16ae04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _playerBulletsLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &114898087243128660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872757129961046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60e8a42c9f7b444bb96c521dd92ab4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementObjects: []
+--- !u!114 &114949889656330522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872757129961046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deacdc500fd262746a1a0b5d6f62bd19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _screenShakeAngle: 1
+  _shakeDuration: 0.35
+  _screenShakeAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: -2.4619436
+      outSlope: -2.4619436
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  _screenShakeHalfAngle: 0
+  _shaking: 0
+  _cameraTransform: {fileID: 0}
+  _cameraPostEffectComponent: {fileID: 0}
+--- !u!114 &114983010205528448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872757129961046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2992da48068a9440894720c4995bd322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellObjects: []
+  weightyObjects: []
+  testWeightInterval: 1

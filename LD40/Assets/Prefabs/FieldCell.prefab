@@ -182,10 +182,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873adac8a5d15e1428984bfe942b44ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rendererRoot: {fileID: 4370072912046226}
   _spriteRenderer: {fileID: 212304532471771212}
   _noneCrackTexture: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
   _crackTexture0: {fileID: 2800000, guid: e8c8c10b5259b694286dab084e6bf09e, type: 3}
   _crackTexture1: {fileID: 2800000, guid: db7259e47e050804da2d19babef455b1, type: 3}
+  _shakeStartDuration: 0.5
+  _shakeTimeRatio: 20
+  _shakeAmplitude: 0.1
 --- !u!212 &212304532471771212
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -9,7 +9,9 @@ namespace Core.Field
         [SerializeField] private FieldCellSettings settings;
         [SerializeField] private int remainingWeight;
 
-        private Coroutine BouncingCoroutine;
+        private FieldCellObjectPresentation cellPresentation;
+        private Coroutine bouncingCoroutine;
+        private Coroutine crashIsComingCoroutine;
 
         public float WeightDelta { get { return RemainingWeight / (float) settings.maxWeight; } }
         public bool WasCrashed { get; private set; }
@@ -27,6 +29,11 @@ namespace Core.Field
         public int CurrentWeight
         {
             get { return settings.maxWeight - remainingWeight; }
+        }
+
+        protected virtual void Awake()
+        {
+            cellPresentation = GetComponent<FieldCellObjectPresentation>();
         }
 
         protected virtual void OnEnable()
@@ -57,9 +64,16 @@ namespace Core.Field
             var currentWeight = CurrentWeight;
             if (0 == currentWeight)
             {
-                if (null == BouncingCoroutine && position.y < 0.0f)
+                if (null == bouncingCoroutine && position.y < 0.0f)
                 {
-                    BouncingCoroutine = StartCoroutine(Bouncing(position));
+                    bouncingCoroutine = StartCoroutine(Bouncing(position));
+                }
+                if (crashIsComingCoroutine != null)
+                {
+                    StopCoroutine(crashIsComingCoroutine);
+                    crashIsComingCoroutine = null;
+                    if (cellPresentation != null)
+                        cellPresentation.StopShake();
                 }
                 CancelInvoke("CrashCell");
             }
@@ -67,16 +81,28 @@ namespace Core.Field
             {
                 position.y = -currentWeight * settings.weightToPositionRation;
                 transform.localPosition = position;
-                if (BouncingCoroutine != null)
+                if (bouncingCoroutine != null)
                 {
-                    StopCoroutine(BouncingCoroutine);
-                    BouncingCoroutine = null;
+                    StopCoroutine(bouncingCoroutine);
+                    bouncingCoroutine = null;
                 }
-                if (remainingWeight <= 0)
+                if (remainingWeight <= 0 &&
+                    null == crashIsComingCoroutine)
                 {
-                    Invoke("CrashCell", settings.delayBeforeFalling);
+                    crashIsComingCoroutine = StartCoroutine(CrashIsComing());
                 }
             }
+        }
+
+        private IEnumerator CrashIsComing()
+        {
+            if (cellPresentation != null)
+                cellPresentation.StartShake();
+            yield return new WaitForSeconds(settings.delayBeforeFalling);
+            CrashCell();
+            crashIsComingCoroutine = null;
+            if (cellPresentation != null)
+                cellPresentation.StopShake();
         }
 
         private void CrashCell()

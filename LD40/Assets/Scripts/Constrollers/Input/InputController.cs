@@ -8,6 +8,8 @@ namespace Constrollers.Input
 
         public abstract bool GetShotButtonPressed();
 
+        public abstract bool GetDashButtonDown();
+
         public abstract Vector3 GetPointerDirectionFrom(Vector3 point);
     }
 }

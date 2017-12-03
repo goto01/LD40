@@ -13,7 +13,8 @@ namespace Core.Movement
         [SerializeField] protected Animator _animator;
         [SerializeField] private SpriteRenderer[] _renderers;
         [SerializeField] private float _weightToSpeedRatio = 1;
-        [SerializeField] private Color _shotFlashColor = Color.black;
+        [SerializeField] private Color _shotFlashStartColor = Color.black;
+        [SerializeField] private Color _shotFlashFinishColor = Color.white;
         [SerializeField] private float _shotFlashDuration = 0.5f;
 
         private BaseWeightyObject baseWeightyObject;
@@ -61,7 +62,7 @@ namespace Core.Movement
         {
             if (flashCoroutine != null)
                 StopCoroutine(flashCoroutine);
-            flashCoroutine = StartCoroutine(Flash(_shotFlashColor));
+            flashCoroutine = StartCoroutine(Flash(_shotFlashStartColor));
         }
 
         private void UpdateAnimator(float offset)
@@ -77,6 +78,16 @@ namespace Core.Movement
 
         protected virtual void OnEnable()
         {
+            if (flashCoroutine != null)
+            {
+                StopCoroutine(flashCoroutine);
+                flashCoroutine = null;
+            }
+            foreach (var renderer in _renderers)
+            {
+                renderer.color = _shotFlashFinishColor;
+            }
+            
             _transform = transform;
             foreach (var renderer in _renderers)
             {
@@ -99,7 +110,7 @@ namespace Core.Movement
 
         private IEnumerator Flash(Color startColor)
         {
-            var finishColor = Color.white;
+            var finishColor = _shotFlashFinishColor;
             for (float t = 0.0f; t < _shotFlashDuration; t += Time.deltaTime)
             {
                 foreach (var renderer in _renderers)

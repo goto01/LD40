@@ -250,7 +250,8 @@ MonoBehaviour:
   _renderers:
   - {fileID: 212708216089240434}
   _weightToSpeedRatio: 2
-  _shotFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  _shotFlashStartColor: {r: 1, g: 0, b: 0, a: 1}
+  _shotFlashFinishColor: {r: 1, g: 1, b: 1, a: 1}
   _shotFlashDuration: 0.5
   shootInterval: 1
   minDistanceToPlayer: 2

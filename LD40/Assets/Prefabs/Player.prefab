@@ -295,12 +295,12 @@ MonoBehaviour:
   minWeight: 1
   startWeight: 4
   currentWeight: 4
-  weightToScaleRate: 0.2
+  weightToScaleRate: 0.3
   distanceToWeightRate: 0.1
   _notFallable: 0
   fallingDelay: 0.25
   fallingAcceleration: -20
-  minYPosition: -30
+  minYPosition: -5
   _scaleDuration: 0.1
 --- !u!114 &114839855180561104
 MonoBehaviour:
@@ -315,12 +315,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 1.5
   _transform: {fileID: 0}
+  _useOroginSpeed: 0
   _animator: {fileID: 95045119002404662}
   _renderers:
   - {fileID: 212922663737467942}
   - {fileID: 212605699919463812}
-  _weightToSpeedRatio: 2
-  _shotFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  _weightToSpeedRatio: 4
+  _shotFlashStartColor: {r: 1, g: 0, b: 0, a: 1}
+  _shotFlashFinishColor: {r: 1, g: 1, b: 1, a: 1}
   _shotFlashDuration: 0.5
   _blockGettingDirection: 0
   _direction: {x: 0, y: 0, z: 0}

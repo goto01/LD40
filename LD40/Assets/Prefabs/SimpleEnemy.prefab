@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab75dd4849830c64793494f6f13c5d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 11400000, guid: 8421458390caa85438ecce31d8c4e0c2, type: 2}
+  _weapon: {fileID: 11400000, guid: b7190f1f52b6a4d29bed9231fd6c3ec8, type: 2}
   _lastShotTime: 0
 --- !u!114 &114681483756640686
 MonoBehaviour:
@@ -204,12 +204,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRoot: {fileID: 4938262775229204}
   minWeight: 1
-  startWeight: 5
+  startWeight: 10
   currentWeight: 5
-  weightToScaleRate: 0.75
-  distanceToWeightRate: 1
+  weightToScaleRate: 0.2
+  distanceToWeightRate: 0.1
   _notFallable: 0
-  fallingDelay: 0.5
+  fallingDelay: 0.25
   fallingAcceleration: -20
   minYPosition: -5
   _scaleDuration: 0.1
@@ -226,16 +226,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0
   _transform: {fileID: 0}
+  _useOroginSpeed: 0
   _animator: {fileID: 95180293611063840}
   _renderers:
   - {fileID: 212582972618074128}
-  _weightToSpeedRatio: 1
-  _shotFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  _weightToSpeedRatio: 2
+  _shotFlashStartColor: {r: 1, g: 0, b: 0, a: 1}
+  _shotFlashFinishColor: {r: 1, g: 1, b: 1, a: 1}
   _shotFlashDuration: 0.5
   shootInterval: 1
-  minDistanceToPlayer: 2
-  walkbackDistanceToPlayer: 1
-  speedWithoutWeight: 3
+  minDistanceToPlayer: 0.5
+  walkbackDistanceToPlayer: 0.2
+  speedWithoutWeight: 10
   weightToSpeedRatio: 1
   bulletsLayerMask:
     serializedVersion: 2

@@ -178,9 +178,11 @@ MonoBehaviour:
   currentWeight: 5
   weightToScaleRate: 0.75
   distanceToWeightRate: 1
+  _notFallable: 0
   fallingDelay: 0.5
   fallingAcceleration: -20
   minYPosition: -5
+  _scaleDuration: 0.1
 --- !u!114 &114964170935486324
 MonoBehaviour:
   m_ObjectHideFlags: 1

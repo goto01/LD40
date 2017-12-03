@@ -299,6 +299,7 @@ MonoBehaviour:
   fallingDelay: 1
   fallingAcceleration: -20
   minYPosition: -30
+  _scaleDuration: 0.1
 --- !u!114 &114839855180561104
 MonoBehaviour:
   m_ObjectHideFlags: 1

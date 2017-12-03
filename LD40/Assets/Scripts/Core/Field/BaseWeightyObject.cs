@@ -17,7 +17,9 @@ namespace Core.Field
         [SerializeField] private float fallingDelay = 1.0f;
         [SerializeField] private float fallingAcceleration = -20.0f;
         [SerializeField] private float minYPosition = -30.0f;
-        
+        [SerializeField] private float _scaleDuration;
+        private Coroutine _scaleCoroutine;
+
         public bool NotFallable
         {
             get { return _notFallable; }
@@ -103,7 +105,19 @@ namespace Core.Field
             }
             var scale = currentWeight / (float) startWeight;
             scale = 1.0f + (scale - 1.0f) * weightToScaleRate;
-            transform.localScale = Vector3.one * scale;
+            if (_scaleCoroutine != null) StopCoroutine(_scaleCoroutine);
+            _scaleCoroutine = StartCoroutine(ScaleCoroutine(scale));
+        }
+
+        private IEnumerator ScaleCoroutine(float to)
+        {
+            var time = Time.time;
+            var startScale = transform.localScale.x;
+            while (time + _scaleDuration > Time.time)
+            {
+                transform.localScale = Vector3.one*Mathf.Lerp(startScale, to, (Time.time - time)/ _scaleDuration);
+                yield return null;
+            }
         }
 
         private void DeathFromExhaustion()

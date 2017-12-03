@@ -216,7 +216,11 @@ MonoBehaviour:
   _speed: 0
   _transform: {fileID: 0}
   _animator: {fileID: 95600420675906688}
+  _renderers:
+  - {fileID: 212708216089240434}
   _weightToSpeedRatio: 2
+  _shotFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  _shotFlashDuration: 0.5
   shootInterval: 1
   minDistanceToPlayer: 2
   walkbackDistanceToPlayer: 1

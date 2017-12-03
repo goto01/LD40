@@ -55,6 +55,11 @@ namespace Core.Bullets
                 //_poolableObject.Deactivate();
                 _animator.SetTrigger(_destroyTrigger);
                 EffectController.Instance.Shake();
+                var movementObject = ray.collider.GetComponent<BaseMovementObject>();
+                if (movementObject != null)
+                {
+                    movementObject.OnWasShooted();
+                }
                 WeightController.Instance.GiveWeightToObject(_weightValue, ray.collider.GetComponent<BaseWeightyObject>());
                 return;
             }

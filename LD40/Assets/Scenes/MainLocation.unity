@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &74107574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesPool: {fileID: 225407529}
   spawnStartCount: 1
-  spawnInterval: 10
+  spawnInterval: 15
 --- !u!4 &74107575
 Transform:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbc86cb6e320a64bbdefd035ed9ba8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 114681483756640686, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
+  _source: {fileID: 114985794238489886, guid: a163ccdcc5dc95a46adf1b5d4deb260d, type: 2}
   _poolSize: 10
   _pool: []
 --- !u!4 &225407530

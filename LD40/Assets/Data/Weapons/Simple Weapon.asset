@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90c3518ad3f0f1349a63fdf0ecfba028, type: 3}
   m_Name: Simple Weapon
   m_EditorClassIdentifier: 
-  _shotDelay: 0.25
+  _shotDelay: 0.1
   _bulletSpeed: 10
   _angleRange: 15
   _bulletsPerShot: 1
-  _weightValue: 5
+  _weightValue: 3
   _oneShotWeight: 0

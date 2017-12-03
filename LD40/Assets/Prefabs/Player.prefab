@@ -293,12 +293,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRoot: {fileID: 4954964687284058}
   minWeight: 1
-  startWeight: 5
-  currentWeight: 5
-  weightToScaleRate: 0.5
-  distanceToWeightRate: 1
+  startWeight: 4
+  currentWeight: 4
+  weightToScaleRate: 0.2
+  distanceToWeightRate: 0.1
   _notFallable: 0
-  fallingDelay: 1
+  fallingDelay: 0.25
   fallingAcceleration: -20
   minYPosition: -30
   _scaleDuration: 0.1
@@ -313,9 +313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89870cf66511b3140adc6031cd5d8e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2.5
+  _speed: 1
   _transform: {fileID: 0}
   _animator: {fileID: 95045119002404662}
+  _weightToSpeedRatio: 2
   _blockGettingDirection: 0
   _direction: {x: 0, y: 0, z: 0}
 --- !u!136 &136805566586494146

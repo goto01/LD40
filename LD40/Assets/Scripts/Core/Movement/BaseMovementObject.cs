@@ -89,6 +89,10 @@ namespace Core.Movement
             }
             
             _transform = transform;
+            foreach (var renderer in _renderers)
+            {
+                renderer.color = Color.white;
+            }
             MovementController.Instance.Register(this);
         }
 

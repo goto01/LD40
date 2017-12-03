@@ -8,7 +8,9 @@ namespace Staff.Pool
     {
         [SerializeField] private PoolableObject _source;
         [SerializeField] private int _poolSize = 10;
-        [SerializeField] private List<PoolableObject> _pool; 
+        [SerializeField] private List<PoolableObject> _pool;
+
+        private int objectIndex;
 
         protected virtual void Awake()
         {
@@ -57,7 +59,7 @@ namespace Staff.Pool
                 var @object = Instantiate(_source);
                 @object.transform.parent = transform;
                 @object.gameObject.SetActive(false);
-                @object.name = _source.name;
+                @object.name = string.Format("{0} #{1}", _source.name, ++objectIndex);
                 _pool.Add(@object);
             }
         }

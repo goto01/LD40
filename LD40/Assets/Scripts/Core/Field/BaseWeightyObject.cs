@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Constrollers;
-using Core.Enemies;
 using Core.Movement;
 using UnityEngine;
 
@@ -17,10 +16,10 @@ namespace Core.Field
         [SerializeField] private float fallingDelay = 1.0f;
         [SerializeField] private float fallingAcceleration = -20.0f;
         [SerializeField] private float minYPosition = -30.0f;
-        
+
         private float? fallingTime;
         private float additionalWeight;
-        
+
         public bool WasFall { get; private set; }
 
         public int CurrentWeight
@@ -89,11 +88,22 @@ namespace Core.Field
 
         private void OnWeightWasChanged()
         {
-            var scale = currentWeight / (float)startWeight;
-            scale = 1.0f + (scale - 1.0f) * weightToScaleRate;  
+            if (currentWeight < minWeight)
+            {
+                currentWeight = minWeight;
+                DeathFromExhaustion();
+            }
+            var scale = currentWeight / (float) startWeight;
+            scale = 1.0f + (scale - 1.0f) * weightToScaleRate;
             transform.localScale = Vector3.one * scale;
         }
-        
+
+        private void DeathFromExhaustion()
+        {
+            Debug.LogFormat("{0} was dead from exhaustion", name);
+            gameObject.SetActive(false);
+        }
+
         private IEnumerator Falling()
         {
             var position = transform.localPosition;

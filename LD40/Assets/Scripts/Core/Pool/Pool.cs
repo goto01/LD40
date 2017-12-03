@@ -12,7 +12,7 @@ namespace Staff.Pool
 
         private int objectIndex;
 
-        protected virtual void Awake()
+        protected virtual void Start()
         {
             CreateObjects(_poolSize);
         }

@@ -73,7 +73,7 @@ namespace Core.Field
             delta.y = 0.0f;
             additionalWeight = CurrentWeight + additionalWeight;
             additionalWeight -= distanceToWeightRate * delta.magnitude;
-            CurrentWeight = Mathf.Max(Mathf.CeilToInt(additionalWeight), minWeight);
+            CurrentWeight = Mathf.Max(Mathf.FloorToInt(additionalWeight), minWeight);
             additionalWeight -= CurrentWeight;
             additionalWeight = Mathf.Max(additionalWeight, 0.0f);
         }

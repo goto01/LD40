@@ -295,7 +295,7 @@ MonoBehaviour:
   minWeight: 1
   startWeight: 4
   currentWeight: 4
-  weightToScaleRate: 0.2
+  weightToScaleRate: 0.3
   distanceToWeightRate: 0.1
   _notFallable: 0
   fallingDelay: 0.25
@@ -320,7 +320,7 @@ MonoBehaviour:
   _renderers:
   - {fileID: 212922663737467942}
   - {fileID: 212605699919463812}
-  _weightToSpeedRatio: 2
+  _weightToSpeedRatio: 4
   _shotFlashStartColor: {r: 1, g: 0, b: 0, a: 1}
   _shotFlashFinishColor: {r: 1, g: 1, b: 1, a: 1}
   _shotFlashDuration: 0.5

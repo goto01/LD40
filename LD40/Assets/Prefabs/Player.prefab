@@ -279,6 +279,7 @@ MonoBehaviour:
   _dashing: 0
   _dashDistance: 1
   _spriteAnimator: {fileID: 95045119002404662}
+  _spriteRenderer: {fileID: 212922663737467942}
 --- !u!114 &114597671899115492
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -22,6 +22,7 @@ namespace Core
         [SerializeField] private bool _dashing;
         [SerializeField] private float _dashDistance;
         [SerializeField] private Animator _spriteAnimator;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         private PlayerMovementObject _movementObject;
         private WeaponComponent _weaponComponent;
         private int _shotParameter = Animator.StringToHash("Shot");
@@ -73,7 +74,11 @@ namespace Core
             _movementObject.Speed = _dashSpeed;
             _movementObject.BlockGettingDirection = true;
             var startPos = transform.position;
-            while (Vector3.Distance(startPos, transform.position) < _dashDistance) yield return null;
+            while (Vector3.Distance(startPos, transform.position) < _dashDistance)
+            {
+                EffectController.Instance.SpawnGhost(transform.position, _spriteRenderer.sprite, _spriteRenderer.transform.localScale);
+                yield return null;
+            }
             _movementObject.Speed = speed;
             _movementObject.BlockGettingDirection = false;
             _spriteAnimator.SetBool(_dashParameter, (_dashing = false));

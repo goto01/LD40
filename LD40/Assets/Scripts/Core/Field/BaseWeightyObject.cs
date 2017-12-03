@@ -8,15 +8,18 @@ namespace Core.Field
 {
     public class BaseWeightyObject : MonoBehaviour
     {
+        [SerializeField] private int minWeight = 1;
         [SerializeField] private int startWeight = 5;
         [SerializeField] private int currentWeight;
         [SerializeField] private float weightToScaleRate = 1.0f;
+        [SerializeField] private float distanceToWeightRate = 1.0f;
         [Header("Falling")]
         [SerializeField] private float fallingDelay = 1.0f;
         [SerializeField] private float fallingAcceleration = -20.0f;
         [SerializeField] private float minYPosition = -30.0f;
         
         private float? fallingTime;
+        private float additionalWeight;
         
         public bool WasFall { get; private set; }
 
@@ -39,6 +42,16 @@ namespace Core.Field
             var movementObject = GetComponent<BaseMovementObject>();
             if (movementObject != null)
                 movementObject.enabled = true;
+        }
+
+        public void OnMoved(Vector3 delta)
+        {
+            delta.y = 0.0f;
+            additionalWeight = CurrentWeight + additionalWeight;
+            additionalWeight -= distanceToWeightRate * delta.magnitude;
+            CurrentWeight = Mathf.Max(Mathf.CeilToInt(additionalWeight), minWeight);
+            additionalWeight -= CurrentWeight;
+            additionalWeight = Mathf.Max(additionalWeight, 0.0f);
         }
 
         protected virtual void OnEnable()

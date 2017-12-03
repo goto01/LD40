@@ -15,4 +15,5 @@ MonoBehaviour:
   _bulletSpeed: 5
   _angleRange: 0
   _bulletsPerShot: 1
-  _weightValue: 10
+  _weightValue: 5
+  _oneShotWeight: 0

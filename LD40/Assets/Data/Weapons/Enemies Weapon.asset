@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Enemies Weapon
   m_EditorClassIdentifier: 
   _shotDelay: 2
-  _bulletSpeed: 2
+  _bulletSpeed: 3
   _angleRange: 0
   _bulletsPerShot: 1
-  _weightValue: 10
-  _oneShotWeight: 1
+  _weightValue: 5
+  _oneShotWeight: 0

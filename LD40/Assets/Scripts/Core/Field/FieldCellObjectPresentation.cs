@@ -10,16 +10,14 @@ namespace Core.Field
 
         [SerializeField] private Transform _rendererRoot;
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Texture2D _noneCrackTexture;
-        [SerializeField] private Texture2D _crackTexture0;
-        [SerializeField] private Texture2D _crackTexture1;
+        [SerializeField] private Sprite _crackSprite0;
+        [SerializeField] private Sprite _crackSprite1;
         [Header("Shake Settings")]
         [SerializeField] private float _shakeStartDuration = 0.1f;
         [SerializeField] private float _shakeTimeRatio = 1.0f;
         [SerializeField] private float _shakeAmplitude = 1.0f;
 
         private BaseFieldCellObject _fieldCellObject;
-        private MaterialPropertyBlock _materialPropertyBlock;
         private Coroutine _shakeCoroutine;
 
         public Vector3 ViewOffset
@@ -28,27 +26,24 @@ namespace Core.Field
             private set { _rendererRoot.transform.localPosition = value; }
         }
 
-        private Texture2D CurrentCrackTexture
+        private Sprite CurrentCrackSprite
         {
             get
             {
-                if (_fieldCellObject.WeightDelta > .75) return _noneCrackTexture;
-                if (_fieldCellObject.WeightDelta > .25f) return _crackTexture0;
-                return _crackTexture1;
+                if (_fieldCellObject.WeightDelta > .75) return null;
+                if (_fieldCellObject.WeightDelta > .25f) return _crackSprite0;
+                return _crackSprite1;
             }
         }
 
         protected virtual void Awake()
         {
             _fieldCellObject = GetComponent<BaseFieldCellObject>();
-            _materialPropertyBlock = new MaterialPropertyBlock();
         }
 
         protected virtual void Update()
         {
-            _spriteRenderer.GetPropertyBlock(_materialPropertyBlock);
-            _materialPropertyBlock.SetTexture(CrackTex, CurrentCrackTexture);
-            _spriteRenderer.SetPropertyBlock(_materialPropertyBlock);
+            _spriteRenderer.sprite = CurrentCrackSprite;
         }
 
         public void StartShake()

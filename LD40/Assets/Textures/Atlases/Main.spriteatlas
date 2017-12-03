@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Main
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 0
+    platformSettings: []
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    packedHash:
+      serializedVersion: 2
+      Hash: c4e6ba98d4c7d318eb5a1190738ccf6b
+    variantMultiplier: 1
+    bindAsDefault: 1
+    finalFormat: 4
+    hashString: c4e6ba98d4c7d318eb5a1190738ccf6b
+    totalSpriteSurfaceArea: 17732
+    packables:
+    - {fileID: 2800000, guid: 6381e8058a31bba4bb2e20b20bcca912, type: 3}
+    - {fileID: 2800000, guid: f0191e36f916a24438ecf2c54efed85b, type: 3}
+    - {fileID: 2800000, guid: 36b1ee96347195c4f954bbceb09f8ba7, type: 3}
+    - {fileID: 2800000, guid: 29b54f16703874345beb72ff182de963, type: 3}
+    - {fileID: 2800000, guid: 5a3785165e99aa84682d8d52611fad11, type: 3}
+    packedSpriteRenderDataKeys:
+    - 6381e8058a31bba4bb2e20b20bcca912: 21300000
+    - 29b54f16703874345beb72ff182de963: 21300000
+    - 29b54f16703874345beb72ff182de963: 21300002
+    - 29b54f16703874345beb72ff182de963: 21300004
+    - 29b54f16703874345beb72ff182de963: 21300006
+    - 29b54f16703874345beb72ff182de963: 21300008
+    - 29b54f16703874345beb72ff182de963: 21300010
+    - 36b1ee96347195c4f954bbceb09f8ba7: 21300000
+    - 5a3785165e99aa84682d8d52611fad11: 21300006
+    - 5a3785165e99aa84682d8d52611fad11: 21300004
+    - 5a3785165e99aa84682d8d52611fad11: 21300002
+    - 5a3785165e99aa84682d8d52611fad11: 21300000
+    - f0191e36f916a24438ecf2c54efed85b: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 6381e8058a31bba4bb2e20b20bcca912, type: 3}
+  - {fileID: 21300000, guid: 29b54f16703874345beb72ff182de963, type: 3}
+  - {fileID: 21300002, guid: 29b54f16703874345beb72ff182de963, type: 3}
+  - {fileID: 21300004, guid: 29b54f16703874345beb72ff182de963, type: 3}
+  - {fileID: 21300006, guid: 29b54f16703874345beb72ff182de963, type: 3}
+  - {fileID: 21300008, guid: 29b54f16703874345beb72ff182de963, type: 3}
+  - {fileID: 21300010, guid: 29b54f16703874345beb72ff182de963, type: 3}
+  - {fileID: 21300000, guid: 36b1ee96347195c4f954bbceb09f8ba7, type: 3}
+  - {fileID: 21300006, guid: 5a3785165e99aa84682d8d52611fad11, type: 3}
+  - {fileID: 21300004, guid: 5a3785165e99aa84682d8d52611fad11, type: 3}
+  - {fileID: 21300002, guid: 5a3785165e99aa84682d8d52611fad11, type: 3}
+  - {fileID: 21300000, guid: 5a3785165e99aa84682d8d52611fad11, type: 3}
+  - {fileID: 21300000, guid: f0191e36f916a24438ecf2c54efed85b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - icetile
+  - penguin_0
+  - penguin_1
+  - penguin_2
+  - penguin_3
+  - penguin_4
+  - penguin_5
+  - penguin gun
+  - bobomb_3
+  - bobomb_2
+  - bobomb_1
+  - bobomb_0
+  - Shadow
+  m_Tag: Main
+  m_IsVariant: 0

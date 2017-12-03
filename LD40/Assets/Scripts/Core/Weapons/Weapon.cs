@@ -11,6 +11,7 @@ namespace Core.Weapons
         [SerializeField] private float _angleRange;
         [SerializeField] private int _bulletsPerShot;
         [SerializeField] private int _weightValue;
+        [SerializeField] private int _oneShotWeight = 1;
 
         public float ShotDelay { get { return _shotDelay; } }
         public float BulletSpeed { get { return _bulletSpeed; } }
@@ -18,5 +19,6 @@ namespace Core.Weapons
         public float RandomAngleRange { get { return UnityEngine.Random.Range(-_angleRange, _angleRange); } }
         public int BulletsPerShot { get { return _bulletsPerShot; } }
         public int WeightValue { get { return _weightValue; } }
+        public int OneShotWeight { get { return _oneShotWeight; } }
     }
 }

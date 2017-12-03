@@ -178,7 +178,7 @@ MonoBehaviour:
   weightToScaleRate: 0.2
   fallingDelay: 0.5
   fallingAcceleration: -20
-  minYPosition: -30
+  minYPosition: -5
 --- !u!114 &114964170935486324
 MonoBehaviour:
   m_ObjectHideFlags: 1

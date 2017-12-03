@@ -1,4 +1,5 @@
-﻿using Core.Enemies;
+﻿using Constrollers;
+using Core.Enemies;
 using Staff.Pool;
 using UnityEngine;
 
@@ -41,6 +42,9 @@ public class EnemySpawner : MonoBehaviour
     {
         sender.Destroyed -= OnEnemyWasDestroyed;
         if (!wasDestroyed)
+        {
             SpawnEnemy();
+            StatisticController.AddEnemy();
+        }
     }
 }

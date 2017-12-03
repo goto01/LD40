@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Constrollers;
 using Core.Movement;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace Core.Field
         [SerializeField] private float minYPosition = -30.0f;
         [SerializeField] private float _scaleDuration;
         private Coroutine _scaleCoroutine;
+
+        public event Action<int, int> WeightWasChanged = delegate {};
         
         public bool NotFallable
         {
@@ -48,8 +51,10 @@ namespace Core.Field
             set
             {
                 if (currentWeight == value) return;
+                var oldWeight = currentWeight;
                 currentWeight = value;
                 OnWeightWasChanged();
+                WeightWasChanged.Invoke(currentWeight, currentWeight - oldWeight);
             }
         }
 

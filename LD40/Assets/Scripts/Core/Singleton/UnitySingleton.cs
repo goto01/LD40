@@ -31,7 +31,6 @@ namespace Core.Singleton
 
         private static T Init()
         {
-            Debug.Log(typeof(T).Name);
             var instance = Object.FindObjectOfType<T>();
             if (instance == null)
             {

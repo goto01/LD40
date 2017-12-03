@@ -9,17 +9,21 @@ namespace Core.Movement
         [SerializeField] protected float _speed;
         [SerializeField] private Transform _transform;
         [SerializeField] private Animator _animator;
+        [SerializeField] private float _weightToSpeedRatio = 1;
 
         private BaseWeightyObject baseWeightyObject;
         private int RunParameter = Animator.StringToHash("Running");
 
         public float Speed
         {
-            get { return _speed; }
+            get
+            {
+                return baseWeightyObject == null ? _speed : _speed/baseWeightyObject.CurrentWeight*_weightToSpeedRatio;
+            }
             set { _speed = value; }
         }
         protected abstract Vector3 Direction { get; }
-        protected Vector3 Offset { get { return Direction * _speed*Time.deltaTime; } }
+        protected Vector3 Offset { get { return Direction * Speed * Time.deltaTime; } }
         
         public virtual void UpdateSelf()
         {

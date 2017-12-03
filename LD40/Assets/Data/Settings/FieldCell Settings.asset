@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: FieldCell Settings
   m_EditorClassIdentifier: 
   radius: 0.5
-  maxWeight: 50
-  delayBeforeFalling: 1
+  maxWeight: 23
+  delayBeforeFalling: 0.5
   fallingAcceleration: -20
   minYPosition: -2
-  weightToPositionRation: 0.05
+  weightToPositionRation: 0.005
   offsetToAcceleration: 40
   springRate: 20

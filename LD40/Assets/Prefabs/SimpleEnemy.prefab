@@ -226,11 +226,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0
   _transform: {fileID: 0}
+  _useOroginSpeed: 0
   _animator: {fileID: 95180293611063840}
   _renderers:
   - {fileID: 212582972618074128}
   _weightToSpeedRatio: 1
-  _shotFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  _shotFlashStartColor: {r: 1, g: 0, b: 0, a: 1}
+  _shotFlashFinishColor: {r: 1, g: 1, b: 1, a: 1}
   _shotFlashDuration: 0.5
   shootInterval: 1
   minDistanceToPlayer: 2

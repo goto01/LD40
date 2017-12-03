@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 114597671899115492}
   - component: {fileID: 54114980513900060}
   - component: {fileID: 136805566586494146}
+  - component: {fileID: 114784489736834838}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -302,6 +303,21 @@ MonoBehaviour:
   fallingAcceleration: -20
   minYPosition: -5
   _scaleDuration: 0.1
+--- !u!114 &114784489736834838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1851531061926240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf342e9660b244aff89e44a6fdf4021f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 0
+  Enemies: 0
+  WeightAdded: 0
+  WeightRemoved: 0
 --- !u!114 &114839855180561104
 MonoBehaviour:
   m_ObjectHideFlags: 1

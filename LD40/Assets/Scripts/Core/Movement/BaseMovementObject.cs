@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Constrollers;
 using Core.Field;
 using UnityEngine;
@@ -16,6 +17,9 @@ namespace Core.Movement
         [SerializeField] private Color _shotFlashStartColor = Color.black;
         [SerializeField] private Color _shotFlashFinishColor = Color.white;
         [SerializeField] private float _shotFlashDuration = 0.5f;
+
+        public event Action<Vector3, Vector3> Moved = delegate { };
+        public event Action WasShooted = delegate { };
 
         private BaseWeightyObject baseWeightyObject;
         private int RunParameter = Animator.StringToHash("Running");
@@ -53,6 +57,7 @@ namespace Core.Movement
         {
             var offset = Offset;
             _transform.position += offset;
+            Moved.Invoke(_transform.position, offset);
             UpdateAnimator(offset.magnitude);
             if (baseWeightyObject != null)
                 baseWeightyObject.OnMoved(offset);
@@ -63,6 +68,7 @@ namespace Core.Movement
             if (flashCoroutine != null)
                 StopCoroutine(flashCoroutine);
             flashCoroutine = StartCoroutine(Flash(_shotFlashStartColor));
+            WasShooted.Invoke();
         }
 
         private void UpdateAnimator(float offset)

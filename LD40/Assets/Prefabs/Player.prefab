@@ -300,7 +300,7 @@ MonoBehaviour:
   _notFallable: 0
   fallingDelay: 0.25
   fallingAcceleration: -20
-  minYPosition: -30
+  minYPosition: -5
   _scaleDuration: 0.1
 --- !u!114 &114839855180561104
 MonoBehaviour:

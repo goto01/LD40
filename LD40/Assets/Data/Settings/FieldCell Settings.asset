@@ -17,5 +17,5 @@ MonoBehaviour:
   fallingAcceleration: -20
   minYPosition: -2
   weightToPositionRation: 0.005
-  offsetToAcceleration: 40
+  offsetToAcceleration: 80
   springRate: 20

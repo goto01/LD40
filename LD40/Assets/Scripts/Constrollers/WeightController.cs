@@ -19,15 +19,5 @@ namespace Constrollers
         {
             @object.CurrentWeight += weight;
         }
-
-        public void TakeWeightFromPlayer(int weight)
-        {
-            PlayerController.Instance.Player.GetComponent<BaseWeightyObject>().CurrentWeight -= weight;
-        }
-
-        public void GiveWeightToPlayer(int weight)
-        {
-            PlayerController.Instance.Player.GetComponent<BaseWeightyObject>().CurrentWeight += weight;
-        }
     }
 }

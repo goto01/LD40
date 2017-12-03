@@ -8,7 +8,6 @@ namespace Constrollers
     {
         [SerializeField] private List<BaseFieldCellObject> cellObjects;
         [SerializeField] private List<BaseWeightyObject> weightyObjects;
-        [SerializeField] private float testWeightInterval = 1.0f;
 
         private float testWeightTimeRemain;
 
@@ -51,6 +50,7 @@ namespace Constrollers
                 var cellObject = GetCell(position);
                 if (cellObject != null && !cellObject.WasCrashed)
                 {
+                    weightyObject.SetViewOffset(cellObject.GetComponent<FieldCellObjectPresentation>().ViewOffset);
                     cellObject.AddWeight(weightyObject.CurrentWeight);
                     position = weightyObject.transform.localPosition;
                     position.y = cellObject.transform.localPosition.y;
@@ -59,6 +59,7 @@ namespace Constrollers
                 }
                 else
                 {
+                    weightyObject.SetViewOffset(Vector3.zero);
                     weightyObject.PrepareToFall();
                 }
             }

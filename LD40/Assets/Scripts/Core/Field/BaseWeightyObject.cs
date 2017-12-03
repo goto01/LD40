@@ -7,6 +7,7 @@ namespace Core.Field
 {
     public class BaseWeightyObject : MonoBehaviour
     {
+        [SerializeField] private Transform viewRoot;
         [SerializeField] private int minWeight = 1;
         [SerializeField] private int startWeight = 5;
         [SerializeField] private int currentWeight;
@@ -40,6 +41,11 @@ namespace Core.Field
                 currentWeight = value;
                 OnWeightWasChanged();
             }
+        }
+
+        public void SetViewOffset(Vector3 value)
+        {
+            viewRoot.transform.localPosition = value;
         }
 
         public void Reset()

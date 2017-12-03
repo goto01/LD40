@@ -22,6 +22,12 @@ namespace Core.Field
         private MaterialPropertyBlock _materialPropertyBlock;
         private Coroutine _shakeCoroutine;
 
+        public Vector3 ViewOffset
+        {
+            get { return _rendererRoot.transform.localPosition; }
+            private set { _rendererRoot.transform.localPosition = value; }
+        }
+
         private Texture2D CurrentCrackTexture
         {
             get
@@ -56,7 +62,7 @@ namespace Core.Field
             if (_shakeCoroutine == null) return;
             StopCoroutine(_shakeCoroutine);
             _shakeCoroutine = null;
-            _rendererRoot.transform.localPosition = Vector3.zero;
+            ViewOffset = Vector3.zero;
         }
 
         private IEnumerator Shake()
@@ -67,12 +73,11 @@ namespace Core.Field
             var startOffset = Random.insideUnitCircle;
             while (true)
             {
-                var position = _rendererRoot.transform.localPosition;
+                var position = ViewOffset;
                 position.x = Mathf.Lerp(a.x, b.x, Mathf.PingPong((t + startOffset.x) * _shakeTimeRatio, 1.0f));
                 position.y = 0.0f;
                 position.z = Mathf.Lerp(a.y, b.y, Mathf.PingPong((t + startOffset.y) * _shakeTimeRatio, 1.0f));
-                _rendererRoot.transform.localPosition =
-                    position * (Mathf.Min(_shakeStartDuration, t) / _shakeStartDuration);
+                ViewOffset = position * (Mathf.Min(_shakeStartDuration, t) / _shakeStartDuration);
                 yield return null;
                 t += Time.deltaTime;
             }

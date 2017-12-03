@@ -112,48 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &50751105
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4563818035014252, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563818035014252, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563818035014252, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563818035014252, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563818035014252, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563818035014252, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563818035014252, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563818035014252, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 6d7b431d646874b0db936fee46925f59, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &74107573
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellObjects: []
   weightyObjects: []
-  testWeightInterval: 1
 --- !u!114 &673534262
 MonoBehaviour:
   m_ObjectHideFlags: 0

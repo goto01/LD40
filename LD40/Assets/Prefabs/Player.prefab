@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51dc53c18dacc4d2c877610e2429c493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewRoot: {fileID: 4954964687284058}
   minWeight: 1
   startWeight: 5
   currentWeight: 5

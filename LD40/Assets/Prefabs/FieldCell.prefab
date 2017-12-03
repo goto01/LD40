@@ -169,9 +169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c15746490554e998cf5ad0b3b555a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: cb1482fa02e3e41cd84ecae7bb212279, type: 2}
   radius: 0.5
-  maxWeight: 50
-  currentWeight: 0
+  maxWeight: 5
+  remainingWeight: 0
   delayBeforeDestroy: 1
   weightToPositionRation: 0.05
   fallingAcceleration: -20

@@ -316,7 +316,12 @@ MonoBehaviour:
   _speed: 1
   _transform: {fileID: 0}
   _animator: {fileID: 95045119002404662}
+  _renderers:
+  - {fileID: 212922663737467942}
+  - {fileID: 212605699919463812}
   _weightToSpeedRatio: 2
+  _shotFlashColor: {r: 0, g: 0, b: 0, a: 1}
+  _shotFlashDuration: 0.5
   _blockGettingDirection: 0
   _direction: {x: 0, y: 0, z: 0}
 --- !u!136 &136805566586494146

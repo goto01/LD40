@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.5
   maxWeight: 23
-  delayBeforeFalling: 0.5
+  delayBeforeFalling: 0.75
   fallingAcceleration: -20
   minYPosition: -2
-  weightToPositionRation: 0.005
+  weightToPositionRation: 0.0075
   offsetToAcceleration: 40
   springRate: 20

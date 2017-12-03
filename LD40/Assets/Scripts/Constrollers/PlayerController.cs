@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Field;
 using Core.Weapons;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace Constrollers
         [SerializeField] private LayerMask _playerBulletsLayerMask;
 
         public LayerMask PlayerBulletsLayerMask { get { return _playerBulletsLayerMask; } }
+
+        public BaseWeightyObject PLayerWeightyObject { get { return Player.GetComponent<BaseWeightyObject>(); } }
 
         public Player Player
         {

@@ -39,6 +39,7 @@ namespace Core.Field
         private float? fallingTime;
         private float additionalWeight;
 
+        public float AdditionaWeight { get { return additionalWeight; } }
         public bool WasFall { get; private set; }
 
         public int CurrentWeight

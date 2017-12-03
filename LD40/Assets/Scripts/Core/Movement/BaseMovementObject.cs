@@ -78,6 +78,10 @@ namespace Core.Movement
         protected virtual void OnEnable()
         {
             _transform = transform;
+            foreach (var renderer in _renderers)
+            {
+                renderer.color = Color.white;
+            }
             MovementController.Instance.Register(this);
         }
 

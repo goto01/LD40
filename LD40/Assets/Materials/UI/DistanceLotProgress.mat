@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ScreenPostEffectMaterial
-  m_Shader: {fileID: 4800000, guid: d644d2c181846bd46877c0ac516922d3, type: 3}
+  m_Name: DistanceLotProgress
+  m_Shader: {fileID: 4800000, guid: 3fedccd346d3a5e4b9a446ccce87f381, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,10 +20,6 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CrackTex:
-        m_Texture: {fileID: 10916, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -42,12 +38,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _FadeTexture:
-        m_Texture: {fileID: 2800000, guid: eaaaeb2ea9179b94db52d6a7e6d1a0ed, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c521650374dea5346b6bea17ab587836, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -62,12 +54,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ProgressTexture:
+        m_Texture: {fileID: 2800000, guid: 30ef50bd7fb575942b0faadf75262c00, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _ColorMask: 15
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FadeDelta: -0.1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -75,16 +71,21 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RGBOffsetDelta: 0
+    - _ProgressValue: 0.12759113
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _UVSec: 0
+    - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorLit: {r: 0, g: 0, b: 0, a: 1}
+    - _ColorMax: {r: 1, g: 0.48235297, b: 0.3647059, a: 1}
+    - _ColorMin: {r: 1, g: 0.48235297, b: 0.3647059, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FadeColor: {r: 0.18431373, g: 0.7058824, b: 1, a: 1}
-    - _Pixels: {r: 1340, g: 810, b: 0, a: 0}
-    - _RGBOffset: {r: 0, g: 0, b: 0, a: 0}
-    - _RGBOffsetDelta: {r: 0.1, g: 0, b: 0, a: 0}

@@ -7,11 +7,10 @@ namespace Core.Field
     {
         private const string CrackTex = "_CrackTex";
 
-        [SerializeField] private MeshRenderer _meshRenderer;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Texture2D _noneCrackTexture;
         [SerializeField] private Texture2D _crackTexture0;
         [SerializeField] private Texture2D _crackTexture1;
-        [SerializeField] private Texture2D _crackTexture2;
         private BaseFieldCellObject _fieldCellObject;
         private MaterialPropertyBlock _materialPropertyBlock;
 
@@ -20,9 +19,8 @@ namespace Core.Field
             get
             {
                 if (_fieldCellObject.WeightDelta > .75) return _noneCrackTexture;
-                if (_fieldCellObject.WeightDelta > .50f) return _crackTexture0;
-                if (_fieldCellObject.WeightDelta > .25f) return _crackTexture1;
-                return _crackTexture2;
+                if (_fieldCellObject.WeightDelta > .25f) return _crackTexture0;
+                return _crackTexture1;
             }
         }
 
@@ -34,9 +32,9 @@ namespace Core.Field
 
         protected virtual void Update()
         {
-            _meshRenderer.GetPropertyBlock(_materialPropertyBlock);
+            _spriteRenderer.GetPropertyBlock(_materialPropertyBlock);
             _materialPropertyBlock.SetTexture(CrackTex, CurrentCrackTexture);
-            _meshRenderer.SetPropertyBlock(_materialPropertyBlock);
+            _spriteRenderer.SetPropertyBlock(_materialPropertyBlock);
         }
     }
 }

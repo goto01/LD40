@@ -18,6 +18,9 @@ namespace Core.Bullets
         [SerializeField] private int _weightValue;
         [SerializeField] private float _radius;
 
+        private Animator _animator;
+        private int _destroyTrigger = Animator.StringToHash("Destroy");
+
         protected override Vector3 Direction
         {
             get { return _direction; }
@@ -25,6 +28,7 @@ namespace Core.Bullets
 
         protected virtual void Awake()
         {
+            _animator = GetComponent<Animator>();
             _poolableObject = GetComponent<PoolableObject>();
         }
 
@@ -50,7 +54,9 @@ namespace Core.Bullets
             RaycastHit ray;
             if (Physics.SphereCast(transform.position, _radius, Direction, out ray, Offset.magnitude, _layerMask))
             {
-                _poolableObject.Deactivate();
+                //_poolableObject.Deactivate();
+                _animator.SetTrigger(_destroyTrigger);
+                EffectController.Instance.Shake();
                 WeightController.Instance.GiveWeightToObject(_weightValue, ray.collider.GetComponent<BaseWeightyObject>());
                 return;
             }

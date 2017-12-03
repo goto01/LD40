@@ -20,13 +20,22 @@ namespace Core.Field
         [SerializeField] private float minYPosition = -30.0f;
         [SerializeField] private float _scaleDuration;
         private Coroutine _scaleCoroutine;
-
+        
         public bool NotFallable
         {
             get { return _notFallable; }
             set { _notFallable = true; }
         }
-        
+
+        private float ActualScale
+        {
+            get
+            {
+                var scale = currentWeight / (float)startWeight;
+                return 1.0f + (scale - 1.0f)*weightToScaleRate;
+            }
+        }
+
         private float? fallingTime;
         private float additionalWeight;
 
@@ -52,6 +61,7 @@ namespace Core.Field
         {
             fallingTime = null;
             WasFall = false;
+            transform.localScale = Vector3.one;
             CurrentWeight = startWeight;
             var movementObject = GetComponent<BaseMovementObject>();
             if (movementObject != null)
@@ -109,10 +119,8 @@ namespace Core.Field
                 currentWeight = minWeight;
                 DeathFromExhaustion();
             }
-            var scale = currentWeight / (float) startWeight;
-            scale = 1.0f + (scale - 1.0f) * weightToScaleRate;
             if (_scaleCoroutine != null) StopCoroutine(_scaleCoroutine);
-            _scaleCoroutine = StartCoroutine(ScaleCoroutine(scale));
+            _scaleCoroutine = StartCoroutine(ScaleCoroutine(ActualScale));
         }
 
         private IEnumerator ScaleCoroutine(float to)

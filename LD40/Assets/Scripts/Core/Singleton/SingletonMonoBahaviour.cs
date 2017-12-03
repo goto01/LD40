@@ -23,6 +23,11 @@ namespace Core.Singleton
         {
             WasDestoyed = true;
         }
+
+        protected void OnApplicationQuit()
+        {
+            WasDestoyed = true;
+        }
         
         public abstract void AwakeSingleton();
     }

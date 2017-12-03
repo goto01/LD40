@@ -25,6 +25,11 @@ public class EnemySpawner : MonoBehaviour
         wasDestroyed = true;
     }
 
+    private void OnApplicationQuit()
+    {
+        wasDestroyed = true;
+    }
+
     private void SpawnEnemy()
     {
         var enemy = enemiesPool.Pop<Enemy>();

@@ -382,6 +382,7 @@ MonoBehaviour:
   _upInputName: up keyboard
   _downInputName: down keyboard
   _shotButtonInputName: shot button keyboard
+  _dashButtonInputName: dash button keyboard
 --- !u!114 &673534259
 MonoBehaviour:
   m_ObjectHideFlags: 0

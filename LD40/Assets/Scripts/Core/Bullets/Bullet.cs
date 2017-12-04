@@ -11,7 +11,7 @@ namespace Core.Bullets
     class Bullet : BaseMovementObject
     {
         [SerializeField] private Vector3 _direction;
-        [SerializeField] private PoolableObject _poolableObject;
+        [SerializeField] private Staff.Pool.PoolableObject _poolableObject;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private Vector3 _startPosition;
         [SerializeField] private float _maxDistance;
@@ -60,13 +60,15 @@ namespace Core.Bullets
                 {
                     movementObject.OnWasShooted();
                 }
+                AudioController.Play("ShotDestroyed");
                 WeightController.Instance.GiveWeightToObject(_weightValue, ray.collider.GetComponent<BaseWeightyObject>());
                 return;
             }
             if (Vector3.Distance(transform.position, _startPosition) > _maxDistance)
             {
                 _poolableObject.Deactivate();
-                
+                AudioController.Play("ShotDestroyed");
+
             }
         }
 

@@ -268,6 +268,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &701133553 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1168759903440456, guid: b22e3a91f61dba340ac3800c4ee4de8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1902169373}
+--- !u!114 &701133554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 701133553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66f5e9dfbbe6ae45bc6878c285ad37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioItem: Cutscene
 --- !u!1 &746449818
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,8 +368,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 746449818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 415.5, y: 233.5, z: 0}
-  m_LocalScale: {x: 0.6486111, y: 0.6486111, z: 0.6486111}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 450017858}
   m_Father: {fileID: 0}
@@ -621,10 +638,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 7df2c39fa4f4a2240909127358afe173,
-      type: 3}
-    m_PressedSprite: {fileID: 21300002, guid: 7df2c39fa4f4a2240909127358afe173, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 7df2c39fa4f4a2240909127358afe173, type: 3}
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -667,7 +683,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7df2c39fa4f4a2240909127358afe173, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -784,6 +800,48 @@ Prefab:
     - {fileID: 114004005535545976, guid: 24afa4178867adc44879dd7d6760fa05, type: 2}
     - {fileID: 114983010205528448, guid: 24afa4178867adc44879dd7d6760fa05, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 24afa4178867adc44879dd7d6760fa05, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1902169373
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4657159654884048, guid: b22e3a91f61dba340ac3800c4ee4de8a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657159654884048, guid: b22e3a91f61dba340ac3800c4ee4de8a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657159654884048, guid: b22e3a91f61dba340ac3800c4ee4de8a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657159654884048, guid: b22e3a91f61dba340ac3800c4ee4de8a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657159654884048, guid: b22e3a91f61dba340ac3800c4ee4de8a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657159654884048, guid: b22e3a91f61dba340ac3800c4ee4de8a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657159654884048, guid: b22e3a91f61dba340ac3800c4ee4de8a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657159654884048, guid: b22e3a91f61dba340ac3800c4ee4de8a, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b22e3a91f61dba340ac3800c4ee4de8a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2084847864
 GameObject:

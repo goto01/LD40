@@ -32,6 +32,7 @@ namespace Core.Weapons
 
         public bool Shot(Vector3 position, Vector3 direction, LayerMask mask)
         {
+            AudioController.Play("Shot");
             position.y = 0.0f;
             if (!ShotPossible) return false;
             _lastShotTime = Time.time;

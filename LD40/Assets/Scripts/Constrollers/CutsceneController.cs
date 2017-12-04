@@ -20,14 +20,18 @@ public class CutsceneController : MonoBehaviour
 
     private void Start()
     {
-        EffectController.Instance.FadeIn();
+        EffectController.Instance.FadeOut();
+        AudioController.Play("Cutscene");
     }
 
     public void NextSlide()
     {
         ++index;
         if (index < slides.Length)
+        {
             image.sprite = slides[index];
+            AudioController.Play("Skip");
+        }
         else
             NextScene();
     }

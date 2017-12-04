@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Cutscene
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 0
+    platformSettings: []
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    packedHash:
+      serializedVersion: 2
+      Hash: 747f183debf35f98c0e55bd8b37c4a40
+    variantMultiplier: 1
+    bindAsDefault: 1
+    finalFormat: 4
+    hashString: 747f183debf35f98c0e55bd8b37c4a40
+    totalSpriteSurfaceArea: 460800
+    packables:
+    - {fileID: 2800000, guid: 898ff8ae48715a541831936c15a2d43f, type: 3}
+    - {fileID: 2800000, guid: e5f0f8d5ca2e46a47b48d1db7e43b509, type: 3}
+    - {fileID: 2800000, guid: ba2c916b18b02b448a821b8e3f7c0406, type: 3}
+    - {fileID: 2800000, guid: 0795e5509cb078746a5c463ef2eea8a5, type: 3}
+    - {fileID: 2800000, guid: bcdeef387c3cdb743b62884ed10b0f10, type: 3}
+    - {fileID: 2800000, guid: 8c887d1539154284683b04bc143f4a28, type: 3}
+    packedSpriteRenderDataKeys:
+    - 8c887d1539154284683b04bc143f4a28: 21300000
+    - e5f0f8d5ca2e46a47b48d1db7e43b509: 21300000
+    - bcdeef387c3cdb743b62884ed10b0f10: 21300000
+    - 0795e5509cb078746a5c463ef2eea8a5: 21300000
+    - 898ff8ae48715a541831936c15a2d43f: 21300000
+    - ba2c916b18b02b448a821b8e3f7c0406: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8c887d1539154284683b04bc143f4a28, type: 3}
+  - {fileID: 21300000, guid: e5f0f8d5ca2e46a47b48d1db7e43b509, type: 3}
+  - {fileID: 21300000, guid: bcdeef387c3cdb743b62884ed10b0f10, type: 3}
+  - {fileID: 21300000, guid: 0795e5509cb078746a5c463ef2eea8a5, type: 3}
+  - {fileID: 21300000, guid: 898ff8ae48715a541831936c15a2d43f, type: 3}
+  - {fileID: 21300000, guid: ba2c916b18b02b448a821b8e3f7c0406, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - frame6
+  - frame4
+  - frame5
+  - frame2
+  - frame3
+  - frame1
+  m_Tag: Cutscene
+  m_IsVariant: 0

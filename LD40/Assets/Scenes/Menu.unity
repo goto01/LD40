@@ -155,6 +155,21 @@ Prefab:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 20296306231984456, guid: e5a4eeb724443d24da8fe53118d26425,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 20296306231984456, guid: e5a4eeb724443d24da8fe53118d26425,
+        type: 2}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20296306231984456, guid: e5a4eeb724443d24da8fe53118d26425,
+        type: 2}
+      propertyPath: m_HDR
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5a4eeb724443d24da8fe53118d26425, type: 2}
   m_IsPrefabParent: 0

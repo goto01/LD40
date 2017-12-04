@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRoot: {fileID: 4954964687284058}
-  minWeight: 1
+  minWeight: 3
   startWeight: 4
   currentWeight: 4
   weightToScaleRate: 0.3
@@ -314,6 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf342e9660b244aff89e44a6fdf4021f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartTime: 0
+  Duration: 0
   Distance: 0
   Enemies: 0
   WeightAdded: 0
@@ -329,14 +331,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89870cf66511b3140adc6031cd5d8e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1.25
+  _speed: 5
   _transform: {fileID: 0}
   _useOroginSpeed: 0
   _animator: {fileID: 95045119002404662}
   _renderers:
   - {fileID: 212922663737467942}
   - {fileID: 212605699919463812}
-  _weightToSpeedRatio: 4
+  _weightToSpeedRatio: 2
   _shotFlashStartColor: {r: 1, g: 0, b: 0, a: 1}
   _shotFlashFinishColor: {r: 1, g: 1, b: 1, a: 1}
   _shotFlashDuration: 0.5

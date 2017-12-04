@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 54041774752968218}
   - component: {fileID: 136207620919586912}
   m_Layer: 10
-  m_Name: SimpleEnemy
+  m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   _spawning: 0
   _spawnDuration: 1.5
   _spawnHeight: 10
+  _weighIncWhenNear: 1
 --- !u!136 &136207620919586912
 CapsuleCollider:
   m_ObjectHideFlags: 1

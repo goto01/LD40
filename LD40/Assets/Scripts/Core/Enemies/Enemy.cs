@@ -24,6 +24,7 @@ namespace Core.Enemies
         [SerializeField] private bool _spawning;
         [SerializeField] private float _spawnDuration;
         [SerializeField] private float _spawnHeight;
+        [SerializeField] private int _weighIncWhenNear;
 
         public bool Spawning { get { return _spawning; } }
 
@@ -96,9 +97,15 @@ namespace Core.Enemies
             if (minDistanceToPlayer < vector.magnitude)
                 _speed = speedWithoutWeight / (weightyObject.CurrentWeight * weightToSpeedRatio);
             else if (vector.magnitude <= walkbackDistanceToPlayer)
-                _speed = -speedWithoutWeight / (weightyObject.CurrentWeight * weightToSpeedRatio);
+            {
+                _speed = -speedWithoutWeight/(weightyObject.CurrentWeight*weightToSpeedRatio);
+                GetComponent<BaseWeightyObject>().CurrentWeight += _weighIncWhenNear;
+            }
             else
+            {
+                GetComponent<BaseWeightyObject>().CurrentWeight += _weighIncWhenNear;
                 _speed = 0.0f;
+            }
         }
 
         private void Shoot()

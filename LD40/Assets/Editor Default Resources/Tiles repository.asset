@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787097c958a9aec48a8b32ec20302a99, type: 3}
+  m_Name: Tiles repository
+  m_EditorClassIdentifier: 
+  _tiles:
+  - Tile: {fileID: 4084581044022922, guid: f90fa49faa4cc85438b1c64f0959d99d, type: 2}
+    Id: 1
+  - Tile: {fileID: 4782931881229790, guid: 12b0a820f1323834cad3a5c15494b50b, type: 2}
+    Id: 2
+  - Tile: {fileID: 4227154810478332, guid: d3cd3da977bf16e46b0e15e795e541d5, type: 2}
+    Id: 3
+  - Tile: {fileID: 4829744675558528, guid: a16ad3e2e1e7e744cba9a690f989c309, type: 2}
+    Id: 4
+  - Tile: {fileID: 4955569386232390, guid: 27da1fcaf514dfc4da0797f7978b49a5, type: 2}
+    Id: 5
+  - Tile: {fileID: 4850451672497662, guid: 3732979e62f54d74cac3680b94c65bee, type: 2}
+    Id: 6
+  - Tile: {fileID: 4551397517947890, guid: 7d14ceef747bf1044a06b67db29395f3, type: 2}
+    Id: 7
+  - Tile: {fileID: 4062062195400118, guid: 8fcca3e9c412c2e42984e5bcf4d18e54, type: 2}
+    Id: 8
+  - Tile: {fileID: 4217842362659918, guid: dd6360c74333a764399f9ec8d0ff694a, type: 2}
+    Id: 9
+  - Tile: {fileID: 4266177231844286, guid: 57a6f5a3adafa604c9bf4129c1984b53, type: 2}
+    Id: 10
+  - Tile: {fileID: 4746015897312794, guid: a6676c2c06e3cc64d855ecd516b45a8d, type: 2}
+    Id: 11
+  - Tile: {fileID: 4906037545480398, guid: 1aebc95607929494a994da4d2f629090, type: 2}
+    Id: 12
+  - Tile: {fileID: 4123106133698732, guid: a07775f02502d4545953c76431e6aa14, type: 2}
+    Id: 13
+  - Tile: {fileID: 4100689800435178, guid: 7f70adc8239b9be49933e1b4f22e1725, type: 2}
+    Id: 14
+  - Tile: {fileID: 4782833439564106, guid: 0942536e8f4d8104aaa5dfae289f4881, type: 2}
+    Id: 15
+  - Tile: {fileID: 4944543836975898, guid: 10bdf8cfc7863a944bbba303f452ec64, type: 2}
+    Id: 16
+  - Tile: {fileID: 4788355070409322, guid: b39daa31387dd4346a65e929673e9188, type: 2}
+    Id: 17
+  - Tile: {fileID: 4052190406501238, guid: 4dd5311dbb68d9244b2a480a1ae9cc64, type: 2}
+    Id: 18
+  - Tile: {fileID: 4192630757887020, guid: 2f6205b13808c00468eeb91b43352031, type: 2}
+    Id: 19
+  - Tile: {fileID: 4329839914808784, guid: dcab6e7522c20224b87c504676d2207d, type: 2}
+    Id: 20
+  - Tile: {fileID: 4273758372069738, guid: 2c4feea56222377439194faac1669764, type: 2}
+    Id: 21
+  - Tile: {fileID: 4588679155440052, guid: 648015c5635840246beacbee7bdec022, type: 2}
+    Id: 22
+  - Tile: {fileID: 4945192603514190, guid: b6b2df797507d844382c26084c609c12, type: 2}
+    Id: 23
+  - Tile: {fileID: 4963866322077738, guid: 7471c50b096e7b046ba0690c14759ba2, type: 2}
+    Id: 24

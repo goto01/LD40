@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787097c958a9aec48a8b32ec20302a99, type: 3}
+  m_Name: Enemies repository
+  m_EditorClassIdentifier: 
+  _tiles:
+  - Tile: {fileID: 4572313698494058, guid: b53cc7987030954489eead7c2e91e57e, type: 2}
+    Id: 25
+  - Tile: {fileID: 4044148397041898, guid: 929c0a1ef3c2d794bbd128995fcf14be, type: 2}
+    Id: 26
+  - Tile: {fileID: 4526717979491222, guid: afa53674b4626c4448ffcdabc3e733a3, type: 2}
+    Id: 27
+  - Tile: {fileID: 4526717979491222, guid: afa53674b4626c4448ffcdabc3e733a3, type: 2}
+    Id: 28

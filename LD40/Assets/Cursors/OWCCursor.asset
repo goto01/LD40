@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96f81215c7d1c641887eeaac7fb3467, type: 3}
+  m_Name: OWCCursor
+  m_EditorClassIdentifier: 
+  _texture: {fileID: 2800000, guid: ab76b3d3315f08a44b3bea207a3da5f2, type: 3}
+  _offset: {x: 36, y: 35}

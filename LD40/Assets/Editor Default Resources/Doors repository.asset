@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787097c958a9aec48a8b32ec20302a99, type: 3}
+  m_Name: Doors repository
+  m_EditorClassIdentifier: 
+  _tiles:
+  - Tile: {fileID: 4270643670179916, guid: b8d36a025eadd6c43a89c3469fa91bdb, type: 2}
+    Id: 41
+  - Tile: {fileID: 4444585036038348, guid: 06874fb16c699d04a8b2e2848ddcbb6e, type: 2}
+    Id: 40
+  - Tile: {fileID: 4568222521223926, guid: f64a731fe7e8c594bb9e6ec3e44ebbad, type: 2}
+    Id: 42
+  - Tile: {fileID: 4444471065867204, guid: 48dde8011d5f1494aa9496ca653f8573, type: 2}
+    Id: 43

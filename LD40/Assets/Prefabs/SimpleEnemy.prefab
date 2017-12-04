@@ -242,6 +242,9 @@ MonoBehaviour:
   bulletsLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  _spawning: 0
+  _spawnDuration: 1.5
+  _spawnHeight: 10
 --- !u!136 &136207620919586912
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -30,6 +30,7 @@ namespace Constrollers
 
         private void OnDisable()
         {
+            if (PlayerController.WasDestoyed) return;
             Duration = Time.time - StartTime;
             var weightlyObject = PlayerController.Instance.PLayerWeightyObject;
             weightlyObject.WeightWasChanged -= OnWeightWasChanged;

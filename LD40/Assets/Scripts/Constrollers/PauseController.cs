@@ -48,7 +48,7 @@ namespace Constrollers
 
         public void SwitchToBeginScene()
         {
-            SceneManager.LoadScene(_startSceneId);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

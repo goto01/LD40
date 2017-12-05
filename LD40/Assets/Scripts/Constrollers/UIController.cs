@@ -22,6 +22,9 @@ namespace Constrollers
         [SerializeField] private Text _weightTextShadow;
         [SerializeField] private StatisticController _statisticController;
         [SerializeField] private Transform _ui;
+        [SerializeField] private Text _score;
+        [SerializeField] private Text _scoreO;
+        [SerializeField] private Text _scoreOShadow;
 
         public override void AwakeSingleton()
         {
@@ -52,6 +55,9 @@ namespace Constrollers
             _weightlostTextShadow.text = string.Format("Weight lost {0}", _statisticController.WeightRemoved);
             _weightAddedText.text = string.Format("Weight added {0}", _statisticController.WeightAdded);
             _weightTextAddedShadow.text = string.Format("Weight added {0}", _statisticController.WeightAdded);
+            _scoreO.text = _score.text = _scoreOShadow.text = string.Format("SCORE: {0}",
+                (int)(_statisticController.Distance + _statisticController.Duration + _statisticController.Enemies +
+                _statisticController.WeightAdded));
         }
     }
 }
